@@ -1,0 +1,928 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Keyword",
+				"KeywordModel"
+			],
+			[
+				"lis",
+				"listing_by_profile"
+			],
+			[
+				"bull",
+				"bulletpoint2"
+			],
+			[
+				"re",
+				"receiver"
+			],
+			[
+				"key",
+				"keyword"
+			],
+			[
+				"col",
+				"column\tbulma-column"
+			],
+			[
+				"print_",
+				"print_location"
+			],
+			[
+				"profi",
+				"profile"
+			],
+			[
+				"pro",
+				"profile_list"
+			],
+			[
+				"profile",
+				"profile_list"
+			],
+			[
+				"prof",
+				"profile_id"
+			],
+			[
+				"message",
+				"message_type"
+			],
+			[
+				"data",
+				"data_header"
+			],
+			[
+				"child",
+				"child_sku"
+			],
+			[
+				"get_b",
+				"get_blank_mockup"
+			],
+			[
+				"bnan",
+				"banner_url2"
+			],
+			[
+				"keyword",
+				"keyword"
+			],
+			[
+				"keyw",
+				"Keyword"
+			],
+			[
+				"strto",
+				"strtolower"
+			],
+			[
+				"ba",
+				"get_banned_keywords"
+			],
+			[
+				"keywor",
+				"keyword"
+			],
+			[
+				"new",
+				"new_text"
+			],
+			[
+				"func",
+				"function"
+			],
+			[
+				"size",
+				"size_map"
+			],
+			[
+				"is",
+				"is_pushed_parent"
+			],
+			[
+				"item",
+				"item_type"
+			],
+			[
+				"brand",
+				"brand_name"
+			],
+			[
+				"price",
+				"price"
+			],
+			[
+				"value",
+				"value_mockup_type"
+			],
+			[
+				"hoo",
+				"hoodie_shirt_sizes"
+			],
+			[
+				"list",
+				"list_size"
+			],
+			[
+				"fun",
+				"fun\tfunction …"
+			],
+			[
+				"colo",
+				"color"
+			],
+			[
+				"fora",
+				"foreach\tforeach …"
+			],
+			[
+				"arr",
+				"array"
+			],
+			[
+				"color",
+				"color_list"
+			],
+			[
+				"CSVD",
+				"CSVDataExport"
+			],
+			[
+				"Exce",
+				"Excel"
+			],
+			[
+				"csv",
+				"csvdata"
+			],
+			[
+				"CSV",
+				"CSVDataModel"
+			],
+			[
+				"search",
+				"searchterm_1"
+			],
+			[
+				"error",
+				"error_message"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"json",
+				"json_decode"
+			],
+			[
+				"Route",
+				"Route::get\tBasic Get Route."
+			],
+			[
+				"unisex",
+				"unisex-t-shirt"
+			],
+			[
+				"stru",
+				"strtoupper"
+			],
+			[
+				"design",
+				"design_month"
+			],
+			[
+				"desi",
+				"design_id"
+			],
+			[
+				"month",
+				"month"
+			],
+			[
+				"main",
+				"main_title"
+			],
+			[
+				"Rou",
+				"Route::post\tBasic Post Route."
+			],
+			[
+				"selec",
+				"selected_profile"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"des",
+				"design"
+			],
+			[
+				"file",
+				"file"
+			],
+			[
+				"gen",
+				"gen_unisex_mockup"
+			],
+			[
+				"backg",
+				"background-color\tproperty"
+			],
+			[
+				"co",
+				"column"
+			],
+			[
+				"clothing",
+				"clothing_config"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"files",
+				"files"
+			],
+			[
+				"val",
+				"validatedData"
+			],
+			[
+				"bul",
+				"bulletpoint1"
+			],
+			[
+				"bu",
+				"bulletpoint1"
+			],
+			[
+				"bullet",
+				"bulletpoint_1"
+			],
+			[
+				"arra",
+				"array"
+			],
+			[
+				"colm",
+				"column"
+			],
+			[
+				"Keywo",
+				"KeywordModel"
+			],
+			[
+				"colum",
+				"columns"
+			],
+			[
+				"leve",
+				"level-right"
+			],
+			[
+				"leve-",
+				"level-left"
+			],
+			[
+				"Store",
+				"Storage::get\tRetrieve the contents of a given file"
+			],
+			[
+				"pas",
+				"password"
+			],
+			[
+				"Htm",
+				"Html"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "routes/web.php",
+			"settings":
+			{
+				"buffer_size": 2322,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/CustomcatController.php",
+			"settings":
+			{
+				"buffer_size": 2939,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/welcome.blade.php",
+			"settings":
+			{
+				"buffer_size": 2454,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Exports/CSVDataExport.php",
+			"settings":
+			{
+				"buffer_size": 9481,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/amz_tshirt_form.blade.php",
+			"settings":
+			{
+				"buffer_size": 12326,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/AmazonTShirtController.php",
+			"settings":
+			{
+				"buffer_size": 14825,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/helper.php",
+			"settings":
+			{
+				"buffer_size": 8730,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "<?php"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: lara",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 157.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/Project/Web",
+		"/D/Project/Web/app",
+		"/D/Project/Web/app/Exports",
+		"/D/Project/Web/app/Http",
+		"/D/Project/Web/app/Http/Controllers",
+		"/D/Project/Web/database",
+		"/D/Project/Web/resources",
+		"/D/Project/Web/resources/views",
+		"/D/Project/Web/routes",
+		"/D/Project/Web/storage",
+		"/D/Project/Web/storage/app"
+	],
+	"file_history":
+	[
+		"/C/Users/admin/Desktop/MouseWithoutBorders/script-scale-text-layer.jsx",
+		"/C/Users/admin/Downloads/dogs.csv",
+		"/C/xampp/htdocs/stmp.php",
+		"/D/Project/Web/.env",
+		"/D/Project/Web/app/Http/Controllers/CustomcatController.php",
+		"/D/Project/Web/app/Http/Controllers/AmazonTShirtController.php",
+		"/D/Project/Web/resources/views/amz_profile_form.blade.php",
+		"/D/Project/Web/resources/views/keyword.blade.php",
+		"/D/Project/Web/app/Exports/CSVDataExport.php",
+		"/D/Project/Web/resources/views/amz_tshirt_form.blade.php",
+		"/D/Project/Web/app/KeywordModel.php",
+		"/D/Project/Web/config/app.php",
+		"/D/Project/Web/resources/views/welcome.blade.php",
+		"/D/Project/Web/database/migrations/2019_05_19_032310_csvdata_add_isexport.php",
+		"/C/xampp/apache/conf/extra/httpd-vhosts.conf",
+		"/C/xampp/apache/conf/extra/httpd-ssl.conf",
+		"/D/Project/Web/test.php",
+		"/D/Project/Web/config/excel.php",
+		"/C/Users/admin/Downloads/amazon_clothing_2019_05_17_09_00.csv",
+		"/C/Users/admin/Downloads/amazon_clothing_2019_05_17_06_47.csv",
+		"/C/Users/admin/Downloads/Amazon Listing Generator - v5 - black shirt & hoodie & tank (1).tsv",
+		"/D/Project/Web/routes/web.php",
+		"/D/Project/Web/database/migrations/2019_05_17_024450_keywords4.php",
+		"/D/Project/Web/config/filesystems.php",
+		"/D/Project/Web/database/migrations/2019_05_17_000340_csvdata7.php",
+		"/D/Project/Web/database/migrations/2019_05_17_000554_keywords3.php",
+		"/D/Project/Web/app/Providers/AppServiceProvider.php",
+		"/D/Project/Web/database/migrations/2019_05_16_153330_csvdata_6.php",
+		"/D/Project/Web/database/migrations/2019_05_16_152955_csvdata_6.php",
+		"/D/Project/Web/database/migrations/2019_05_16_103055_csvdata_5.php",
+		"/D/Project/Web/database/migrations/2019_05_16_083156_csvdata_4.php",
+		"/D/Project/Web/database/migrations/2019_05_16_083035_profile_4.php",
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/User/bulma-input.sublime-snippet",
+		"/D/Project/Web/resources/views/keyword.php",
+		"/D/Project/Web/database/migrations/2019_05_15_033554_profile_2.php",
+		"/D/Project/Web/database/migrations/2019_05_10_142009_unique_kwmodel_keyword_group_name.php",
+		"/D/Project/Web/database/migrations/2019_05_16_044722_keywords_2.php",
+		"/D/Project/Web/database/migrations/2019_05_16_041200_keywords_1.php",
+		"/D/Project/Web/database/migrations/2019_05_16_030208_csvdata_3.php",
+		"/D/Project/Web/database/migrations/2019_05_15_153900_csvdata_3.php",
+		"/D/Project/Web/database/migrations/2019_05_15_121800_profile_4.php",
+		"/D/Project/Web/database/migrations/2019_05_15_091411_csvdata_2.php",
+		"/D/Project/Web/app/CSVDataModel.php",
+		"/D/Project/Web/database/migrations/2019_05_15_081535_csvdata_1.php",
+		"/D/Project/Web/database/migrations/2019_05_15_051122_profile_3.php",
+		"/D/Project/Web/database/migrations/2019_05_15_032815_add_price_profile.php",
+		"/D/Project/Web/database/migrations/2019_05_15_033146_profile_1.php",
+		"/D/Project/Web/app/ProfileModel.php",
+		"/D/Project/Web/storage/app/avatars/pPFsblbK07Mn0CdOom3606H0eoJZMLTfX1cCvQWA.jpeg",
+		"/D/Project/Web/composer.json",
+		"/D/Project/Web/database/migrations/2019_05_14_111739_create_profile_table.php",
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/User/bulma-box.sublime-snippet",
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/User/bulma-column.sublime-snippet",
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/User/laravel-input.sublime-snippet",
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/User/laravel-column.sublime-snippet",
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/User/laravel-column.sublime-snippet.xml",
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/snippets/Input/Input-all.sublime-snippet",
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/snippets/Request/Request-all.sublime-snippet",
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/User/laravel-bulma.sublime-snippet",
+		"/D/Project/Web/database/migrations/2019_05_14_084137_create_csvdata_table.php",
+		"/D/Project/Web/app/Http/Controllers/UserController.php",
+		"/D/Project/Web/database/migrations/2019_05_10_131453_keyword.php",
+		"/D/Project/Web/app/UserModel.php",
+		"/D/Project/Web/resources/views/greeting.blade.php",
+		"/D/Project/Web/public/index.php",
+		"/D/Project/Web/database/migrations/2019_05_06_075706_create_users_table.php",
+		"/D/Project/Web/vendor/mockery/mockery/tests/Mockery/Fixtures/SemiReservedWordsAsMethods.php",
+		"/C/xampp/phpMyAdmin/config.inc.php",
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/snippets/Cookie/Cookie-forever.sublime-snippet"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"gen_item_sku",
+			":",
+			";",
+			" =",
+			"$keyword->",
+			"get_blank_mockup",
+			", 'sapphia', 'sky', 'berry'",
+			"'blue',",
+			"upload(",
+			"htmlspecialchars_decode",
+			"ucfirst",
+			"remove_banned_keywords",
+			"keyworddelete",
+			"$this->",
+			"\n",
+			"?')\">",
+			"\n",
+			"\"",
+			"\",\"",
+			"brand_name",
+			"brand_name\nbrand_name",
+			"brand_name",
+			"\n",
+			"));",
+			"'[keyword]', ",
+			"ucfirst(str_replace",
+			"\"",
+			"\"&C21&\"",
+			"\"&E1&\"",
+			"keyword_group_name",
+			"\t",
+			"    \t$value_mockup = json_decode($value->mockup);\n\t\t    \t$value_mockup_type = $value_mockup->$type;\n\t\t    \t$mockup_url = config('filesystems.disks.onedrive.url').$value_mockup_type->$color;\n\t\t    \t$type_name = ucfirst($color).' '.type_map($type);\n\t\t\t\t$price_json = json_decode($profile->price);\n\t\t\t\t$price = $price_json->$type;\n\t\t\t\t$fulfillment_latency = $this->fulfillment_latency();\n\n\t\t\t\t$data = array(\n\t\t\t\t\tarray(//parent\n\t\t\t\t\t\t'shirt',$value->item_sku,$this->brand_name(),$value->item_name,\n\t\t\t\t\t\t'','GTIN',$this->item_type(),'','','','','','','','','','','','','','','','','Unisex',\n\t\t\t\t\t\t$price,'999','Migrated Template',\n\t\t\t\t\t\t$mockup_url,//https://fmfzjdfkijvumogugbhwza-on.drv.tw/JPG/t5/79/black-t-shirt.jpg',\n\t\t\t\t\t\t'',//'https://images-na.ssl-images-amazon.com/images/I/61aY6Fo8WAL._UL1500_.jpg',\n\t\t\t\t\t\t'',//'https://images-na.ssl-images-amazon.com/images/I/71NAb%2BddamL._SX679._SX._UX._SY._UY_.jpg',\n\t\t\t\t\t\t'',//'https://images-na.ssl-images-amazon.com/images/I/71BhzMr-zgL._UL1500_.jpg',\n\t\t\t\t\t\t'Parent','','','SizeColor','Update',\n\t\t\t\t\t\t$value->description,$value->bulletpoint_1,$value->bulletpoint_2,$value->bulletpoint_3,$value->bulletpoint_4,$value->bulletpoint_5,$value->searchterm_1,$value->searchterm_2,$value->searchterm_3,$value->searchterm_4,$value->searchterm_5,\n\t\t\t\t\t\t'','0.5','LB','NoWarningApplicable','','','FALSE','FALSE',$fulfillment_latency\n\t\t\t\t\t)\n\t\t\t\t);\n\t\t    \t\t",
+			"\n    \t\t\t\t\t\t",
+			"class=\"input\" ",
+			"type=\"text\" ",
+			"<input",
+			"':'',",
+			" => ",
+			"selected_profile",
+			"$profile->",
+			"name",
+			"\t\t\n",
+			"profile_name",
+			"selected_profile",
+			"profile",
+			"\\\\",
+			"//",
+			"/',",
+			"\t\t//",
+			"save_to_csv",
+			"\n",
+			"selected_profile",
+			"Form::select",
+			"hide",
+			"\n",
+			"is-1",
+			"pngs",
+			"<div class=\"control\">\n<div class=\"select\" id=\"select\">\n{{ Form::select('kw_group_name', $kws_group_name, null, ['v-on:change'=>'signalChange']) }}\n</div>\n</div>\t\n</div>",
+			"select",
+			"form:select",
+			"\n",
+			"});\n",
+			"\n",
+			"level-item",
+			"\"rows\" => 2",
+			"\"rows\" => 3",
+			"\n",
+			" ",
+			"\n",
+			"labrador shirt labrador retriever shirt labrador t shirt labrador shirts for women labrador t-shirt labrador shirts for men labrador mom shirt labradors t-shirt womens labrador shirt mens labrador shirt ",
+			"\n",
+			"file"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"=>",
+			",",
+			"' =>",
+			"' =",
+			"'",
+			"",
+			" ",
+			"",
+			"\t",
+			"\\t",
+			" ",
+			");",
+			"",
+			"$this->replace_keyword",
+			"[keyword]",
+			"main_keyword",
+			"\",\"",
+			"",
+			"<textarea",
+			"='';",
+			":",
+			"/",
+			"\\",
+			" ",
+			", ",
+			" ",
+			"column",
+			"\"rows\" => 1",
+			"\"rows\" => 2",
+			" ",
+			"  ",
+			" ",
+			"",
+			" ",
+			","
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "routes/web.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2322,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								895,
+								895
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 486.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/Http/Controllers/CustomcatController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2939,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1556,
+								1556
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 162.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "resources/views/welcome.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2454,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1915,
+								1915
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 540.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/Exports/CSVDataExport.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9481,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7143,
+								7151
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2160.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "resources/views/amz_tshirt_form.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12326,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8645,
+								8656
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 5480.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/Http/Controllers/AmazonTShirtController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14825,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14767,
+								14767
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 6892.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/helper.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8730,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4785,
+								4785
+							]
+						],
+						"settings":
+						{
+							"auto_name": "<?php",
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 5264.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Test.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 415.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

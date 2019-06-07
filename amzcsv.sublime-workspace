@@ -1,0 +1,1104 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bul",
+				"bulletpoint_1"
+			],
+			[
+				"CSVda",
+				"CSVDataModel"
+			],
+			[
+				"csv",
+				"csv_row"
+			],
+			[
+				"selec",
+				"selectALl"
+			],
+			[
+				"selet",
+				"selectALl"
+			],
+			[
+				"number",
+				"number_per_page"
+			],
+			[
+				"fiel",
+				"filter"
+			],
+			[
+				"CSVD",
+				"CSVDataModel"
+			],
+			[
+				"return",
+				"return_profile_name"
+			],
+			[
+				"list",
+				"listing_by_profile"
+			],
+			[
+				"color",
+				"colors"
+			],
+			[
+				"type_",
+				"type_name"
+			],
+			[
+				"pro",
+				"profile_shirt_type"
+			],
+			[
+				"type",
+				"type_list"
+			],
+			[
+				"ca",
+				"catch"
+			],
+			[
+				"slee",
+				"sleep_time"
+			],
+			[
+				"tee",
+				"teezily_aff_tag"
+			],
+			[
+				"short",
+				"short_link"
+			],
+			[
+				"shor",
+				"short_link"
+			],
+			[
+				"scan",
+				"scan_result"
+			],
+			[
+				"li",
+				"links"
+			],
+			[
+				"is_s",
+				"is_showoff"
+			],
+			[
+				"Keyword",
+				"KeywordModel"
+			],
+			[
+				"lis",
+				"listing_by_profile"
+			],
+			[
+				"bull",
+				"bulletpoint2"
+			],
+			[
+				"re",
+				"receiver"
+			],
+			[
+				"key",
+				"keyword"
+			],
+			[
+				"col",
+				"column\tbulma-column"
+			],
+			[
+				"print_",
+				"print_location"
+			],
+			[
+				"profi",
+				"profile"
+			],
+			[
+				"profile",
+				"profile_list"
+			],
+			[
+				"prof",
+				"profile_id"
+			],
+			[
+				"message",
+				"message_type"
+			],
+			[
+				"data",
+				"data_header"
+			],
+			[
+				"child",
+				"child_sku"
+			],
+			[
+				"get_b",
+				"get_blank_mockup"
+			],
+			[
+				"bnan",
+				"banner_url2"
+			],
+			[
+				"keyword",
+				"keyword"
+			],
+			[
+				"keyw",
+				"Keyword"
+			],
+			[
+				"strto",
+				"strtolower"
+			],
+			[
+				"ba",
+				"get_banned_keywords"
+			],
+			[
+				"keywor",
+				"keyword"
+			],
+			[
+				"new",
+				"new_text"
+			],
+			[
+				"func",
+				"function"
+			],
+			[
+				"size",
+				"size_map"
+			],
+			[
+				"is",
+				"is_pushed_parent"
+			],
+			[
+				"item",
+				"item_type"
+			],
+			[
+				"brand",
+				"brand_name"
+			],
+			[
+				"price",
+				"price"
+			],
+			[
+				"value",
+				"value_mockup_type"
+			],
+			[
+				"hoo",
+				"hoodie_shirt_sizes"
+			],
+			[
+				"fun",
+				"fun\tfunction …"
+			],
+			[
+				"colo",
+				"color"
+			],
+			[
+				"fora",
+				"foreach\tforeach …"
+			],
+			[
+				"arr",
+				"array"
+			],
+			[
+				"Exce",
+				"Excel"
+			],
+			[
+				"CSV",
+				"CSVDataModel"
+			],
+			[
+				"search",
+				"searchterm_1"
+			],
+			[
+				"error",
+				"error_message"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"json",
+				"json_decode"
+			],
+			[
+				"Route",
+				"Route::get\tBasic Get Route."
+			],
+			[
+				"unisex",
+				"unisex-t-shirt"
+			],
+			[
+				"stru",
+				"strtoupper"
+			],
+			[
+				"design",
+				"design_month"
+			],
+			[
+				"desi",
+				"design_id"
+			],
+			[
+				"month",
+				"month"
+			],
+			[
+				"main",
+				"main_title"
+			],
+			[
+				"Rou",
+				"Route::post\tBasic Post Route."
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"des",
+				"design"
+			],
+			[
+				"file",
+				"file"
+			],
+			[
+				"gen",
+				"gen_unisex_mockup"
+			],
+			[
+				"backg",
+				"background-color\tproperty"
+			],
+			[
+				"co",
+				"column"
+			],
+			[
+				"clothing",
+				"clothing_config"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"files",
+				"files"
+			],
+			[
+				"val",
+				"validatedData"
+			],
+			[
+				"bu",
+				"bulletpoint1"
+			],
+			[
+				"bullet",
+				"bulletpoint_1"
+			],
+			[
+				"arra",
+				"array"
+			],
+			[
+				"colm",
+				"column"
+			],
+			[
+				"Keywo",
+				"KeywordModel"
+			],
+			[
+				"colum",
+				"columns"
+			],
+			[
+				"leve",
+				"level-right"
+			],
+			[
+				"leve-",
+				"level-left"
+			],
+			[
+				"Store",
+				"Storage::get\tRetrieve the contents of a given file"
+			],
+			[
+				"pas",
+				"password"
+			],
+			[
+				"Htm",
+				"Html"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/helper.php",
+			"settings":
+			{
+				"buffer_size": 7508,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "routes/web.php",
+			"settings":
+			{
+				"buffer_size": 2894,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/AmazonTShirtController.php",
+			"settings":
+			{
+				"buffer_size": 17621,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/edit_csv.blade.php",
+			"settings":
+			{
+				"buffer_size": 3120,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/welcome.blade.php",
+			"settings":
+			{
+				"buffer_size": 3852,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Exports/EbayCSVExport.php",
+			"settings":
+			{
+				"buffer_size": 15302,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/Project/Web/laradock/.env",
+			"settings":
+			{
+				"buffer_size": 22157,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Project/Web/laradock/docker-compose.yml",
+			"settings":
+			{
+				"buffer_size": 49856,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Exports/AmazonCSVExport.php",
+			"settings":
+			{
+				"buffer_size": 9803,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/exportcsv.blade.php",
+			"settings":
+			{
+				"buffer_size": 3225,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/nav.blade.php",
+			"settings":
+			{
+				"buffer_size": 1490,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "@if ($paginator->hasPages())"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: lara",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 157.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/Project/Web/amzcsv",
+		"/D/Project/Web/amzcsv/app",
+		"/D/Project/Web/amzcsv/app/Console",
+		"/D/Project/Web/amzcsv/app/Console/Commands",
+		"/D/Project/Web/amzcsv/app/Exports",
+		"/D/Project/Web/amzcsv/app/Http",
+		"/D/Project/Web/amzcsv/app/Http/Controllers",
+		"/D/Project/Web/amzcsv/config",
+		"/D/Project/Web/amzcsv/resources",
+		"/D/Project/Web/amzcsv/resources/views",
+		"/D/Project/Web/amzcsv/storage",
+		"/D/Project/Web/amzcsv/storage/app"
+	],
+	"file_history":
+	[
+		"/D/Project/Web/laradock/php-fpm/Dockerfile",
+		"/D/Project/Web/amzcsv/app/Exports/AmazonCSVExport.php",
+		"/D/Project/Web/amzcsv/app/Exports/EbayCSVExport.php",
+		"/D/Project/Web/amzcsv/config/excel.php",
+		"/D/Project/Web/amzcsv/storage/app/teezily_list_file.txt",
+		"/D/Project/Web/amzcsv/app/Console/Commands/Teezily.php",
+		"/D/Project/Web/amzcsv/app/teezily_helper.php",
+		"/D/Project/Web/amzcsv/resources/views/amz_tshirt_form.blade.php",
+		"/D/Project/Web/amzcsv/app/Exports/CSVDataExport.php",
+		"/D/Project/Web/amzcsv/storage/app/1558867586/upload_page.txt",
+		"/D/Software & Tools/Upload Mockup Fanpage/Limitierte Edition T-Shirt_Log_260519_060829.txt",
+		"/D/Project/Web/amzcsv/app/Exports/CSVUploadFacebookExport.php",
+		"/D/Project/Web/amzcsv/vendor/guzzlehttp/guzzle/src/Exception/ClientException.php",
+		"/D/Project/Web/amzcsv/vendor/guzzlehttp/guzzle/src/Exception/BadResponseException.php",
+		"/D/Project/Web/amzcsv/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php",
+		"/D/Project/Web/amzcsv/vendor/guzzlehttp/guzzle/src/Exception/GuzzleException.php",
+		"/D/Project/Web/amzcsv/vendor/guzzlehttp/guzzle/src/Exception/TransferException.php",
+		"/D/Software & Tools/Upload Mockup Fanpage/Heart Loved One_Log_260519_110954.txt",
+		"/D/Software & Tools/Upload Mockup Fanpage/Trang Phạm_Log_260519_110954.txt",
+		"/D/Project/Web/amzcsv/storage/app/1558843522/upload_page.csv",
+		"/D/Project/Web/amzcsv/resources/views/welcome.blade.php",
+		"/D/Project/Web/amzcsv/app/Http/Controllers/TeezilyController.php",
+		"/D/Project/Web/amzcsv/teezily_links.txt",
+		"/D/Software & Tools/Upload Mockup Fanpage/Limitierte Edition T-Shirt_Log_250519_113008.txt",
+		"/D/Project/Web/amzcsv/storage/app/teezily_links.txt",
+		"/D/Project/Web/amzcsv/resources/views/teezily_scan.blade.php",
+		"/D/Project/Web/amzcsv/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+		"/D/TeezilyController.php",
+		"/C/xampp/apache/conf/extra/httpd-vhosts.conf",
+		"/D/Project/Web/routes/web.php",
+		"/D/Project/Web/app/helper.php",
+		"/D/Project/Web/app/Http/Controllers/AmazonTShirtController.php",
+		"/D/Project/Web/resources/views/amz_tshirt_form.blade.php",
+		"/D/Project/Web/app/Exports/CSVDataExport.php",
+		"/D/Project/Web/resources/views/welcome.blade.php",
+		"/D/Project/Web/app/Http/Controllers/CustomcatController.php",
+		"/C/Users/admin/Desktop/MouseWithoutBorders/script-scale-text-layer.jsx",
+		"/C/Users/admin/Downloads/dogs.csv",
+		"/C/xampp/htdocs/stmp.php",
+		"/D/Project/Web/.env",
+		"/D/Project/Web/resources/views/amz_profile_form.blade.php",
+		"/D/Project/Web/resources/views/keyword.blade.php",
+		"/D/Project/Web/app/KeywordModel.php",
+		"/D/Project/Web/config/app.php",
+		"/D/Project/Web/database/migrations/2019_05_19_032310_csvdata_add_isexport.php",
+		"/C/xampp/apache/conf/extra/httpd-ssl.conf",
+		"/D/Project/Web/test.php",
+		"/D/Project/Web/config/excel.php",
+		"/C/Users/admin/Downloads/amazon_clothing_2019_05_17_09_00.csv",
+		"/C/Users/admin/Downloads/amazon_clothing_2019_05_17_06_47.csv",
+		"/C/Users/admin/Downloads/Amazon Listing Generator - v5 - black shirt & hoodie & tank (1).tsv",
+		"/D/Project/Web/database/migrations/2019_05_17_024450_keywords4.php",
+		"/D/Project/Web/config/filesystems.php",
+		"/D/Project/Web/database/migrations/2019_05_17_000340_csvdata7.php",
+		"/D/Project/Web/database/migrations/2019_05_17_000554_keywords3.php",
+		"/D/Project/Web/app/Providers/AppServiceProvider.php",
+		"/D/Project/Web/database/migrations/2019_05_16_153330_csvdata_6.php",
+		"/D/Project/Web/database/migrations/2019_05_16_152955_csvdata_6.php",
+		"/D/Project/Web/database/migrations/2019_05_16_103055_csvdata_5.php",
+		"/D/Project/Web/database/migrations/2019_05_16_083156_csvdata_4.php",
+		"/D/Project/Web/database/migrations/2019_05_16_083035_profile_4.php",
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/User/bulma-input.sublime-snippet",
+		"/D/Project/Web/resources/views/keyword.php",
+		"/D/Project/Web/database/migrations/2019_05_15_033554_profile_2.php",
+		"/D/Project/Web/database/migrations/2019_05_10_142009_unique_kwmodel_keyword_group_name.php",
+		"/D/Project/Web/database/migrations/2019_05_16_044722_keywords_2.php",
+		"/D/Project/Web/database/migrations/2019_05_16_041200_keywords_1.php",
+		"/D/Project/Web/database/migrations/2019_05_16_030208_csvdata_3.php",
+		"/D/Project/Web/database/migrations/2019_05_15_153900_csvdata_3.php",
+		"/D/Project/Web/database/migrations/2019_05_15_121800_profile_4.php",
+		"/D/Project/Web/database/migrations/2019_05_15_091411_csvdata_2.php",
+		"/D/Project/Web/app/CSVDataModel.php",
+		"/D/Project/Web/database/migrations/2019_05_15_081535_csvdata_1.php",
+		"/D/Project/Web/database/migrations/2019_05_15_051122_profile_3.php",
+		"/D/Project/Web/database/migrations/2019_05_15_032815_add_price_profile.php",
+		"/D/Project/Web/database/migrations/2019_05_15_033146_profile_1.php",
+		"/D/Project/Web/app/ProfileModel.php",
+		"/D/Project/Web/storage/app/avatars/pPFsblbK07Mn0CdOom3606H0eoJZMLTfX1cCvQWA.jpeg",
+		"/D/Project/Web/composer.json",
+		"/D/Project/Web/database/migrations/2019_05_14_111739_create_profile_table.php",
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/User/bulma-box.sublime-snippet",
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/User/bulma-column.sublime-snippet",
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/User/laravel-input.sublime-snippet",
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/User/laravel-column.sublime-snippet",
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/User/laravel-column.sublime-snippet.xml",
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/snippets/Input/Input-all.sublime-snippet",
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/snippets/Request/Request-all.sublime-snippet",
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/User/laravel-bulma.sublime-snippet",
+		"/D/Project/Web/database/migrations/2019_05_14_084137_create_csvdata_table.php",
+		"/D/Project/Web/app/Http/Controllers/UserController.php",
+		"/D/Project/Web/database/migrations/2019_05_10_131453_keyword.php",
+		"/D/Project/Web/app/UserModel.php",
+		"/D/Project/Web/resources/views/greeting.blade.php",
+		"/D/Project/Web/public/index.php",
+		"/D/Project/Web/database/migrations/2019_05_06_075706_create_users_table.php",
+		"/D/Project/Web/vendor/mockery/mockery/tests/Mockery/Fixtures/SemiReservedWordsAsMethods.php",
+		"/C/xampp/phpMyAdmin/config.inc.php",
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/snippets/Cookie/Cookie-forever.sublime-snippet"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+			"D:\\Project\\Web\\amzcsv"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"PHP_",
+			"MARIADB",
+			" 2019\n",
+			"\n",
+			"font-size: small",
+			"upc",
+			"resource",
+			"show",
+			"v-on",
+			" ",
+			",",
+			"\t",
+			"\t\t",
+			"\t",
+			"AmazonCSVExport",
+			"limitiert-landwirt-orte",
+			"message",
+			"mug",
+			"1",
+			"\t\t\n",
+			"teezily_link",
+			"teezily_links",
+			"teezily_link",
+			"value",
+			"2258981507765875",
+			"v-on:click",
+			"Vue",
+			"prevent",
+			"submit",
+			"prevent",
+			"save_data",
+			"response()",
+			"json",
+			"method(",
+			"teezily",
+			"teezily.TeezilyController"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			",",
+			"font-size: normal",
+			"",
+			"\n",
+			"\",\""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 6,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/helper.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7508,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								626,
+								626
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 54.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "routes/web.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2894,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2553,
+								2553
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 620.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/Http/Controllers/AmazonTShirtController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17621,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2215,
+								2215
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 846.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "resources/views/edit_csv.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3120,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								217,
+								217
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "resources/views/welcome.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3852,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2729,
+								2729
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1080.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/Exports/EbayCSVExport.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 15302,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14089,
+								14089
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 3552.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/D/Project/Web/laradock/.env",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 22157,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1471,
+								1471
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 386.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/D/Project/Web/laradock/docker-compose.yml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 49856,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14829,
+								14829
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/Exports/AmazonCSVExport.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9803,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3332,
+								3332
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 792.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "resources/views/exportcsv.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3225,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2072,
+								2072
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "resources/views/nav.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1490,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1416,
+								1416
+							]
+						],
+						"settings":
+						{
+							"auto_name": "@if ($paginator->hasPages())",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "amzcsv.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 297.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
