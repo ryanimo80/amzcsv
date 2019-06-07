@@ -2,6 +2,7 @@
 use Illuminate\Support\Str;	
 
 include_once('teezily_helper.php');
+include_once('minify_helper.php');
 
 function clothing_config($type = '')
 {

@@ -58,7 +58,7 @@ class AmazonCSVExport implements FromCollection, WithHeadings
 					'',//'https://images-na.ssl-images-amazon.com/images/I/71NAb%2BddamL._SX679._SX._UX._SY._UY_.jpg',
 					'',//'https://images-na.ssl-images-amazon.com/images/I/71BhzMr-zgL._UL1500_.jpg',
 					'Parent','','','SizeColor','Update',
-					$value->description,$value->bulletpoint_1,$value->bulletpoint_2,$value->bulletpoint_3,$value->bulletpoint_4,$value->bulletpoint_5,$value->searchterm_1,$value->searchterm_2,$value->searchterm_3,$value->searchterm_4,$value->searchterm_5,
+					minify_html(html_entity_decode($value->description)),$value->bulletpoint_1,$value->bulletpoint_2,$value->bulletpoint_3,$value->bulletpoint_4,$value->bulletpoint_5,$value->searchterm_1,$value->searchterm_2,$value->searchterm_3,$value->searchterm_4,$value->searchterm_5,
 					'','0.5','LB','NoWarningApplicable','','','FALSE','FALSE',$fulfillment_latency
 				)
 			);
@@ -145,7 +145,7 @@ class AmazonCSVExport implements FromCollection, WithHeadings
 							$banner_url1,
 							$banner_url2,
 							'Child',$value->item_sku,'Variation','SizeColor','Update',
-							html_entity_decode($value->description),html_entity_decode($value->bulletpoint_1),($value->bulletpoint_2),($value->bulletpoint_3),($value->bulletpoint_4),($value->bulletpoint_5),$value->searchterm_1,$value->searchterm_2,$value->searchterm_3,$value->searchterm_4,$value->searchterm_5,
+							minify_html(html_entity_decode($value->description)),html_entity_decode($value->bulletpoint_1),($value->bulletpoint_2),($value->bulletpoint_3),($value->bulletpoint_4),($value->bulletpoint_5),$value->searchterm_1,$value->searchterm_2,$value->searchterm_3,$value->searchterm_4,$value->searchterm_5,
 							'','0.5','LB','NoWarningApplicable','','','FALSE','FALSE',$fulfillment_latency
 						);
 			if($i>=count($sizes)-4){

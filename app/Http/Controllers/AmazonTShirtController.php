@@ -267,7 +267,7 @@ class AmazonTShirtController extends Controller
 	    	$csvdata->searchterm_4 = (replace_keyword($req->searchterm_4, $req));
 	    	$csvdata->searchterm_5 = (replace_keyword($req->searchterm_5, $req));
 	    	$csvdata->description = (replace_keyword($req->description, $req));
-	    	// $csvdata->mockup = json_encode($mockup);
+	    	$csvdata->mockup = json_encode($mockup);
 
 		    $validator = Validator::make($csvdata->toArray(), [
 		    	'item_name' => [new ValidBannedKeyword],
@@ -291,7 +291,8 @@ class AmazonTShirtController extends Controller
 	    		));		    	
 			}
 
-	    	$csvdata->save();
+	    	$csvdata->save();//save to database
+
 	    	return response()->json(array(
 	    		'message'=>'Successful',
 	    	));
