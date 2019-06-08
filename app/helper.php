@@ -41,6 +41,24 @@ function clothing_config($type = '')
 				'back' => array(440, 370)
 			]
 		],
+
+		// mug 11oz & 15oz
+		['title'=>'Mug 11 oz', 'name'=>'mug11oz', 'short_code'=>'M11', 'max_size'=>'11oz',
+			'color'=>['black','white'],
+			'print_location' =>[
+				'front' => array(220, 150),
+				'back' => array(80, 150)
+			]
+		],		
+		['title'=>'Mug 15 oz', 'name'=>'mug15oz', 'short_code'=>'M15', 'max_size'=>'15oz',
+			'color'=>['black','white'],
+			'print_location' =>[
+				'front' => array(220, 150),
+				'back' => array(60, 150)
+			]
+		],		
+
+
 		['title'=>'Long Sleeve', 'name'=>'long-sleeve', 'short_code'=>'', 'max_size'=>'',
 			'color'=>['black','navy','red','royal'],// not support yet
 		],
@@ -73,6 +91,14 @@ function  get_print_sizes($location='front')
 	return $print_location;
 }
 
+function is_mug_type($type)
+{
+	if(in_array($type, array('mug11oz', 'mug15oz'))){
+		return true;
+	}
+	return false;
+}
+
 if(!function_exists('gen_mockup_front_side'))
 {
 	function gen_mockup_front_side($type, $design_file, $color='')
@@ -81,7 +107,13 @@ if(!function_exists('gen_mockup_front_side'))
 		$print_location = get_print_sizes('front');
 		$mockup_file = 'front-'.$type.'.jpg';
 		$design = public_path().'/'.$design_file;
-		$resize_design = array(580, 702);
+
+		if(is_mug_type($type)){
+			$resize_design = array(420, 504); // resize png theo mockup cua mua
+		}else{
+			$resize_design = array(580, 702); // resize png theo mockup cua ao
+		}
+
 		$blank_mockup = "/blank-mockup/$color/".$mockup_file;
 		$path = Storage::disk('onedrive')->getAdapter()->getPathPrefix();
 		$save_mockup = $path.'/mockup/'.$color.'/'.$time.'.jpg';
@@ -106,7 +138,13 @@ if(!function_exists('gen_mockup_back_side'))
 		$print_location = get_print_sizes('back');		
 		$mockup_file = 'back-'.$type.'.jpg';
 		$design = public_path().'/'.$design_file;
-		$resize_design = array(630, 756);
+
+		if(is_mug_type($type)){
+			$resize_design = array(420, 504); // resize png theo mockup cua mua
+		}else{
+			$resize_design = array(630, 756); // resize png theo mockup ao
+		}
+
 		$blank_mockup = "/blank-mockup/$color/".$mockup_file;
 		$path = Storage::disk('onedrive')->getAdapter()->getPathPrefix();
 		$save_mockup = $path.'/mockup/'.$color.'/'.$time.'.jpg';
@@ -127,10 +165,16 @@ if(!function_exists('gen_mockup_back_side'))
 if(!function_exists('gen_mockup')){
 	function gen_mockup($type, $side, $design_file, $color)
 	{
-		if($side==0){
-			return gen_mockup_front_side($type, $design_file, $color);
+		if(is_mug_type($type)){
+			$filepath1 = gen_mockup_front_side($type, $design_file, $color);
+			$filepath2 = gen_mockup_back_side($type, $design_file, $color);
+			return $filepath1.'|'.$filepath2;// mockup mat truoc|mockup mat sau
 		}else{
-			return gen_mockup_back_side($type, $design_file, $color);
+			if($side==0){
+				return gen_mockup_front_side($type, $design_file, $color);
+			}else{
+				return gen_mockup_back_side($type, $design_file, $color);
+			}			
 		}
 	}
 }
@@ -161,6 +205,7 @@ function color_map($c)
 	$color = array(
 		'black' => 'BL',
 		'navy'	=> 'NV',
+		'white' => 'WH'
 	);
 	return $color[$c];
 }
@@ -174,7 +219,7 @@ function type_map($t){
 	return $type[$t];
 }
 
-function generate_sizes($s)
+function generate_sizes($size_shortcode, $type = 'clothing')
 {
 	$size = array(
 		'S' => 'Small',
@@ -192,10 +237,10 @@ function generate_sizes($s)
 	foreach ($size as $key => $value) {
 		# code...
 		$ret[$key] = $value;
-		if($key == $s){
+		if($key == $size_shortcode){
 			return $ret;
 		}
-	}
+	}		
 }
 
 function brand_name()
@@ -279,4 +324,22 @@ function valid_date_bulletpoint($text)
 		return false;
 	}
 	return true;
+}
+
+function item_type($type)
+{
+    if(is_mug_type($type))
+        $type = 'novelty-coffee-mugs';
+    else
+        $type = 'fashion-tshirts';
+	return $type;
+}
+
+function feed_type($type)
+{
+    if(is_mug_type($type))
+        $type = 'kitchen';
+    else
+        $type = 'shirt';
+    return $type;
 }

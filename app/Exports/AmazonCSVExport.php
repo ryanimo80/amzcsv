@@ -50,14 +50,16 @@ class AmazonCSVExport implements FromCollection, WithHeadings
 
 			$data_parent = array(
 				array(//parent
-					'shirt',$value->item_sku,$value->brand_name,$value->item_name,
-					'','GTIN',$this->item_type(),'','','','','','','','','','','','','','','','','Unisex',
+					'',$value->item_sku,$value->brand_name,$value->item_name,
+					'','GTIN','','','','','','','','','','','','','','','','','','Unisex',
 					$price,'999','Migrated Template',
-					$mockup_url,//https://fmfzjdfkijvumogugbhwza-on.drv.tw/JPG/t5/79/black-t-shirt.jpg',
-					'',//'https://images-na.ssl-images-amazon.com/images/I/61aY6Fo8WAL._UL1500_.jpg',
-					'',//'https://images-na.ssl-images-amazon.com/images/I/71NAb%2BddamL._SX679._SX._UX._SY._UY_.jpg',
-					'',//'https://images-na.ssl-images-amazon.com/images/I/71BhzMr-zgL._UL1500_.jpg',
-					'Parent','','','SizeColor','Update',
+					$mockup_url,// 27 mockup 1
+					'',//28 mockup 1
+					'',//29 mockup 1
+					'',//30 mockup 1
+					'Parent','','',
+                    '',// 34 - sizecolor or corlorname
+                    'Update',
 					minify_html(html_entity_decode($value->description)),$value->bulletpoint_1,$value->bulletpoint_2,$value->bulletpoint_3,$value->bulletpoint_4,$value->bulletpoint_5,$value->searchterm_1,$value->searchterm_2,$value->searchterm_3,$value->searchterm_4,$value->searchterm_5,
 					'','0.5','LB','NoWarningApplicable','','','FALSE','FALSE',$fulfillment_latency
 				)
@@ -73,7 +75,7 @@ class AmazonCSVExport implements FromCollection, WithHeadings
     			}
 
     			if($is_pushed_parent==false){
-	    			$data_parent = $this->update_parent_field($data_parent, $data[0]);
+	    			$data_parent = $this->update_parent_field($data_parent, $data[0], $type);
 					$is_pushed_parent = true;
 					$exportdata->push($data_parent);
     			}
@@ -88,28 +90,40 @@ class AmazonCSVExport implements FromCollection, WithHeadings
     }
 
 
-    public function update_parent_field($data, $child)
+    public function update_parent_field($data, $child, $type = 'clothing')
     {
+        # Lay gia tri cua child gan nhat gan cho parent
     	# code... 28 is main_image_url field
-		$data[0][3] = substr($child[0][3], 0, -2).'';//item_name;
+        #
+        $data[0][0] = feed_type($type);//feed type or product type;
+        $data[0][6] = item_type($type);//item type;
+		$data[0][3] = is_mug_type($type)?$child[0][3]:substr($child[0][3], 0, -2).'';//item_name;
 		$data[0][27] = $child[0][27];//set parent mockup = unisex mockup;    
 		$data[0][24] = $child[0][24];//set parent mockup = unisex mockup;    
 		$data[0][28] = $child[0][28];//set parent mockup = unisex mockup;    
 		$data[0][29] = $child[0][29];//set parent mockup = unisex mockup;    
 		$data[0][30] = $child[0][30];//set parent mockup = unisex mockup;    
+        $data[0][34] = $child[0][34];// neu la mug thi la colorname, clothing thi la sizecolor
 		return $data;	
     }
 
     public function listing_by_profile($value, $type, $color, $profile)
     {
-    	$clothing_type = clothing_config($type);
-    	$short_code = $clothing_type['short_code'];
-    	$max_size = $clothing_type['max_size'];
-    	$sizes = array();
-    	foreach (generate_sizes($max_size) as $key => $v) {
-    		# code...
-    		$sizes[$key] = array($short_code.$key, $v);
-    	}
+        $clothing_type = clothing_config($type);
+        $short_code = $clothing_type['short_code'];
+        $max_size = $clothing_type['max_size'];
+
+        if(is_mug_type($type)){
+            $sizes = array(
+                $type => array($short_code, ucfirst($type))
+            );
+        }else{
+            $sizes = array();
+            foreach (generate_sizes($max_size) as $key => $v) {
+                # code...
+                $sizes[$key] = array($short_code.$key, $v);
+            }            
+        }
     	$data = $this->list_size($sizes, $value, $type, $color, $profile);
     	return $data;
     }
@@ -137,14 +151,28 @@ class AmazonCSVExport implements FromCollection, WithHeadings
     		# code...
 			$child_sku = $value->item_sku.'-'.color_map($color).'-'.$size_map[0];
 			$data[] = array(//child
-							'shirt',$child_sku,$value->brand_name,html_entity_decode($value->item_name).' '.type_map($type).' '.$size_name,
-							'','GTIN',$this->item_type(), $type_name, ucfirst($color),$size_name,$size_map[1],'FALSE','','','','','','','','','','','','Unisex',
+							feed_type($type),$child_sku,$value->brand_name,
+
+                            html_entity_decode($value->item_name).' '.type_map($type).(is_mug_type($type)?'':' '.$size_name),
+
+							'','GTIN',item_type($type), $type_name, ucfirst($color),
+
+                            is_mug_type($type)?'':$size_name, // neu la mug thi de trong size
+                            is_mug_type($type)?'':$size_map[1], // neu la mug thi de trong size
+
+                            'FALSE','','','','','','','','','','','','Unisex',
 							$price,'999','Migrated Template',
-							$mockup_url,
-							$mockup_blank_side,
+
+							is_mug_type($type)?(explode('|',$mockup_url)[0]):$mockup_url, // neu la mug thi mockup co 2 gia tri
+							is_mug_type($type)?(explode('|',$mockup_url)[1]):$mockup_blank_side,
+
 							$banner_url1,
 							$banner_url2,
-							'Child',$value->item_sku,'Variation','SizeColor','Update',
+							'Child',$value->item_sku,'Variation',
+
+                            is_mug_type($type)?'ColorName':'SizeColor',
+                            
+                            'Update',
 							minify_html(html_entity_decode($value->description)),html_entity_decode($value->bulletpoint_1),($value->bulletpoint_2),($value->bulletpoint_3),($value->bulletpoint_4),($value->bulletpoint_5),$value->searchterm_1,$value->searchterm_2,$value->searchterm_3,$value->searchterm_4,$value->searchterm_5,
 							'','0.5','LB','NoWarningApplicable','','','FALSE','FALSE',$fulfillment_latency
 						);
@@ -161,11 +189,7 @@ class AmazonCSVExport implements FromCollection, WithHeadings
     	return 5; //default fulfillment_latency
     }
 
-    function item_type()
-    {
-    	$type = 'fashion-tshirts';
-    	return $type;
-    }
+
 
     function get_blank_mockup($type, $color, $print_location)
     {
