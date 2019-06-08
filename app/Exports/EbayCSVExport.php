@@ -118,7 +118,7 @@ class EbayCSVExport implements FromCollection, WithHeadings
 			$child_sku = $value->item_sku.'-'.color_map($color).'-'.$type['short_code'].$ts_key;
 			$clothing_type = "Basic Tee";
 	    	$data_variant[] = array(
-						"Add",$child_sku,$this->eBay_config['clothing_category_id'],"",ucfirst($value->item_name)." ".$type_config['title'],"","Variation","Size=".$ts_key."|Color=".ucfirst($color),$this->eBay_config['clothing_condition_id'],"","Unbranded","Does Not Apply",$clothing_type,"","","100% Cotton","No","","","","United States","",$type_mockup,"",$description,"FixedPrice","GTC",$price,"","1","1",$this->eBay_config['paypal_email'],"1","",$this->eBay_config['manufacturer_location'],"Flat","","","","",$this->eBay_config['handle_time'],"","","","ReturnsNotAccepted","","","","","",$this->eBay_config['shipping_profile_name'],$this->eBay_config['return_profile_name'],$this->eBay_config['payment_profile_name']
+						"Add",$child_sku,$this->eBay_config['clothing_category_id'],"",ucfirst($value->item_name)." ".$type_config['title']." ".$ts_key,"","Variation","Size=".$ts_key."|Color=".ucfirst($color),$this->eBay_config['clothing_condition_id'],"","Unbranded","Does Not Apply",$clothing_type,"","","100% Cotton","No","","","","United States","",$type_mockup,"",$description,"FixedPrice","GTC",$price,"","1","1",$this->eBay_config['paypal_email'],"1","",$this->eBay_config['manufacturer_location'],"Flat","","","","",$this->eBay_config['handle_time'],"","","","ReturnsNotAccepted","","","","","",$this->eBay_config['shipping_profile_name'],$this->eBay_config['return_profile_name'],$this->eBay_config['payment_profile_name']
 					);
 			if($i>=count($type_sizes)-4){
 				$price++;

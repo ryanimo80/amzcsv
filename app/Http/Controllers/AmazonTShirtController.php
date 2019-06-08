@@ -10,6 +10,7 @@ use App\CSVDataModel;
 use Excel;
 use App\Exports\AmazonCSVExport;
 use App\Exports\EbayCSVExport;
+use App\Exports\WishCSVExport;
 use App\Rules\ValidBannedKeyword;
 
 class AmazonTShirtController extends Controller
@@ -417,7 +418,7 @@ class AmazonTShirtController extends Controller
 
 	public function exportCSV(Request $req)
 	{
-		$marketplace = array('Amazon', 'eBay');
+		$marketplace = array('Amazon', 'eBay', 'Wish');
 		$date = date("Y_m_d_H_i");
 		$filter = array('New', 'Exported', 'All');
 		$number_per_page = array(20, 50, 100, 200);
@@ -427,18 +428,22 @@ class AmazonTShirtController extends Controller
 		if($req->isMethod('POST')){
 			if($req->export){
 				$selectedIDs = array();
-				// dd($_POST);
+
 				if($req->selectedIDs!=null)
 					$selectedIDs = explode(',', $req->selectedIDs);
+
 				if($req->marketplace==0){//amazon
 					$export = new AmazonCSVExport($selectedIDs);
 					return Excel::download($export, 'amazon_clothing_'.$date.'.tsv');
 				}else if($req->marketplace==1){//ebay
 					$export = new EBayCSVExport($selectedIDs);
 					return Excel::download($export, 'ebay_clothing_'.$date.'.tsv');
+				}else if($req->marketplace==2){//ebay
+					$export = new WishCSVExport($selectedIDs);
+					return Excel::download($export, 'wish_clothing_'.$date.'.tsv');
 				}
 			}
-// dd(($req->sort_by==0)?'desc':'asc');
+
 			$csvData = CSVDataModel::where(function($query) use($req){
 							$query->orWhere('item_name','LIKE', '%'.$req->keyword.'%');
 							$query->orWhere('item_sku','LIKE', '%'.$req->keyword.'%');
