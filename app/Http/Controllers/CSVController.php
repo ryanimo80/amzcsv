@@ -108,9 +108,8 @@ class CSVController extends Controller
 	    	*
 	    	*/
 	    	$mockup = generate_png_mockup($req->filepng, $colors);
-	    	
-	    	$csvdata->mockup = json_encode($mockup);
 
+	    	$csvdata->mockup = json_encode($mockup);
 
     		$csvdata->save();//save to database
 
@@ -129,21 +128,40 @@ class CSVController extends Controller
     {
     	# code...
     	$csv = CSVDataModel::find($req->id);
+    	$profile = ProfileModel::where('id', $csv->profile_id)->first();
 
     	if($req->isMethod('POST')){
-    		$csv->item_name = $req->item_name;
-    		$csv->bulletpoint_1 = $req->bulletpoint_1;
-    		$csv->bulletpoint_2 = $req->bulletpoint_2;
-    		$csv->bulletpoint_3 = $req->bulletpoint_3;
-    		$csv->bulletpoint_4 = $req->bulletpoint_4;
-    		$csv->bulletpoint_5 = $req->bulletpoint_5;
-    		$csv->searchterm_1 = $req->searchterm_1;
-    		$csv->searchterm_2 = $req->searchterm_2;
-    		$csv->searchterm_3 = $req->searchterm_3;
-    		$csv->searchterm_4 = $req->searchterm_4;
-    		$csv->searchterm_5 = $req->searchterm_5;
-    		$csv->description = $req->description;
-    		$csv->save();
+    		if($req->get('updatemk')){
+		        if($req->hasfile('file_png'))
+		         {
+		            $file = $req->file('file_png');
+	                $name = $file->getClientOriginalName();
+	                $path = '/files/'.time();
+	                $file->move(public_path().$path, $name);
+
+	                // $csvdata = CSVDataModel::where('id', $req->id)->first();
+			    	$mockup = generate_png_mockup($path.'/'.$name, $profile);
+	    			$csv->mockup = json_encode($mockup);
+	    			// dd($csv->mockup);
+			    	$csv->save();
+		         }
+    		}
+
+    		if($req->get('updatekw')){
+	    		$csv->item_name = $req->item_name;
+	    		$csv->bulletpoint_1 = $req->bulletpoint_1;
+	    		$csv->bulletpoint_2 = $req->bulletpoint_2;
+	    		$csv->bulletpoint_3 = $req->bulletpoint_3;
+	    		$csv->bulletpoint_4 = $req->bulletpoint_4;
+	    		$csv->bulletpoint_5 = $req->bulletpoint_5;
+	    		$csv->searchterm_1 = $req->searchterm_1;
+	    		$csv->searchterm_2 = $req->searchterm_2;
+	    		$csv->searchterm_3 = $req->searchterm_3;
+	    		$csv->searchterm_4 = $req->searchterm_4;
+	    		$csv->searchterm_5 = $req->searchterm_5;
+	    		$csv->description = $req->description;
+	    		$csv->save();
+    		}
     	}
 
     	return view('edit_csv',[

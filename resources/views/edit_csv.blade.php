@@ -75,20 +75,42 @@
 					<textarea name="description" v-model='description' class="textarea" rows="2">{{ $csv->description }}</textarea>
 				</div>
 			</div>
-			{{ Form::submit('Update', ['class'=>'button is-primary', 'name'=>'submit']) }}
+			{{ Form::submit('Update', ['class'=>'button is-primary', 'name'=>'updatekw']) }}
 		</form>			
 	</div>
 	<div class="column">
 
-		
+		{{ Form::open(array('url'=>url()->current(), 'enctype'=>"multipart/form-data")) }}
+<div class="field file">
+  <label class="file-label">
+    <input class="file-input" type="file" name="file_png">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Choose a file…
+      </span>
+    </span>
+  </label>
+</div>
+<div class="field">	
+	<div class="control">
+		<input type="submit" value="Update mockup" name="updatemk" class="button"/>
+	</div>
+</div>
 
+		{{ Form::close() }}
+<hr/>
+SKU: {{ $csv->item_sku }}
+<hr/>
 		<?php foreach (json_decode($csv->mockup, true) as $type => $color_mockup): ?>
 			<?php foreach ($color_mockup as $color => $mockup): ?>
 				<?php if(is_mug_type($type)){ ?>
-				<a href="<?php echo explode("|", $mockup)[0]; ?>"><img src="<?php echo explode("|", $mockup)[0]; ?>" width="75" /></a>
-				<a href="<?php echo explode("|", $mockup)[1]; ?>"><img src="<?php echo explode("|", $mockup)[1]; ?>" width="75" /></a>
+				<a target="_blank" href="<?php echo explode("|", $mockup)[0]; ?>"><img src="<?php echo explode("|", $mockup)[0]; ?>" width="75" /></a>
+				<a target="_blank" href="<?php echo explode("|", $mockup)[1]; ?>"><img src="<?php echo explode("|", $mockup)[1]; ?>" width="75" /></a>
 				<?php }else{ ?>
-				<a href="<?php echo $mockup; ?>"><img src="<?php echo $mockup; ?>" width="75" /></a>					
+				<a target="_blank" href="<?php echo $mockup; ?>"><img src="<?php echo $mockup; ?>" width="75" /></a>					
 				<?php } ?>
 			<?php endforeach ?>
 		<?php endforeach ?>

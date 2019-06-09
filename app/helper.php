@@ -179,13 +179,15 @@ if(!function_exists('gen_mockup')){
 	}
 }
 
-function generate_png_mockup($file_png, $colors)
+function generate_png_mockup($file_png, $profile)
 {
 	/**
 	* Generate mockup
 	*
 	*/
 	$mockup = array();
+	$colors = json_decode($profile->color);
+	
 	foreach ($colors as $type => $color) {
 		# code...
 		$mockup[$type] = array();
