@@ -44,7 +44,10 @@
 					{{ Form::select('profile_id', $profile_list, isset($profile->id)?$profile->id:null, ['placeholder'=>'Select profile']) }}
 			</div>
 		</div>
-		
+
+<!-- 			<label class="label" for="testmockup">Test Generate Mockup</label>
+			<input type="checkbox" name="testmockup" id="testmockup" class="checkbox"/>
+ -->		
 		<div class="field">
 			<div class="control">
 			{{Form::submit('Upload', ['class'=>'button is-dark is-primary'])}}

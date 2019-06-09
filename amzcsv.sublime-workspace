@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"si",
+				"sizes"
+			],
+			[
+				"mug1",
+				"mug15oz"
+			],
+			[
+				"img_",
+				"img_handle_time"
+			],
+			[
 				"keyw",
 				"keyword"
 			],
@@ -380,80 +392,19 @@
 	"buffers":
 	[
 		{
-			"file": "app/helper.php",
-			"settings":
-			{
-				"buffer_size": 7568,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/minify_helper.php",
-			"settings":
-			{
-				"buffer_size": 5949,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/KeywordModel.php",
-			"settings":
-			{
-				"buffer_size": 356,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "routes/web.php",
-			"settings":
-			{
-				"buffer_size": 2894,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "app/Http/Controllers/AmazonTShirtController.php",
 			"settings":
 			{
-				"buffer_size": 18595,
+				"buffer_size": 18737,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/C/Users/admin/.ssh/id_rsa.pub",
+			"file": "app/helper.php",
 			"settings":
 			{
-				"buffer_size": 746,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/amz_tshirt_form.blade.php",
-			"settings":
-			{
-				"buffer_size": 12380,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "storage/app/keywordbanned.txt",
-			"settings":
-			{
-				"buffer_size": 29920,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "resources/views/edit_csv.blade.php",
-			"settings":
-			{
-				"buffer_size": 3120,
+				"buffer_size": 9035,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -462,7 +413,7 @@
 			"file": "app/Exports/EbayCSVExport.php",
 			"settings":
 			{
-				"buffer_size": 15314,
+				"buffer_size": 16017,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -471,16 +422,7 @@
 			"file": "app/Exports/AmazonCSVExport.php",
 			"settings":
 			{
-				"buffer_size": 9849,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "resources/views/exportcsv.blade.php",
-			"settings":
-			{
-				"buffer_size": 3225,
+				"buffer_size": 10614,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -527,13 +469,23 @@
 		"/D/Project/Web/www/amzcsv/app",
 		"/D/Project/Web/www/amzcsv/app/Console",
 		"/D/Project/Web/www/amzcsv/app/Console/Commands",
-		"/D/Project/Web/www/amzcsv/app/Exports",
+		"/D/Project/Web/www/amzcsv/app/Http",
+		"/D/Project/Web/www/amzcsv/app/Http/Controllers",
 		"/D/Project/Web/www/amzcsv/public",
 		"/D/Project/Web/www/amzcsv/storage",
 		"/D/Project/Web/www/amzcsv/storage/app"
 	],
 	"file_history":
 	[
+		"/D/Project/Web/www/amzcsv/resources/views/amz_tshirt_form.blade.php",
+		"/D/Project/Web/www/amzcsv/storage/app/keywordbanned.txt",
+		"/D/Project/Web/www/amzcsv/resources/views/exportcsv.blade.php",
+		"/D/Project/Web/www/amzcsv/resources/views/edit_csv.blade.php",
+		"/C/Users/admin/.ssh/id_rsa.pub",
+		"/D/Project/Web/www/amzcsv/app/Exports/WishCSVExport.php",
+		"/D/Project/Web/www/amzcsv/routes/web.php",
+		"/D/Project/Web/www/amzcsv/app/minify_helper.php",
+		"/D/Project/Web/www/amzcsv/app/helper.php",
 		"/D/Project/Web/www/ideamng/.gitignore",
 		"/D/Project/Web/www/amzcsv/app/Rules/ValidBannedKeyword.php",
 		"/D/Project/Web/www/amzcsv/.git/COMMIT_EDITMSG",
@@ -649,6 +601,7 @@
 		"height": 101.0,
 		"where_history":
 		[
+			"D:\\Project\\Web\\www\\amzcsv",
 			"D:\\Project\\Web\\amzcsv"
 		]
 	},
@@ -657,6 +610,19 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"basic tee",
+			"array_keys",
+			"$type",
+			"\t\t$type_config = clothing_config($type_name);\n",
+			"type",
+			"item_type",
+			"fashion",
+			"generate_sizes",
+			"gen_mockup",
+			"brand",
+			"\t",
+			"eBay_config",
+			"export",
 			"remove_banned_keywords",
 			"keyword(",
 			"profile(",
@@ -713,6 +679,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"\",\"",
 			",",
 			"font-size: normal",
 			"",
@@ -728,139 +695,24 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/helper.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7568,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								92,
-								92
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2106.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/minify_helper.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5949,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								320,
-								331
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/KeywordModel.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 356,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								356,
-								356
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "routes/web.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2894,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2553,
-								2553
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 638.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "app/Http/Controllers/AmazonTShirtController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 18595,
+						"buffer_size": 18737,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								13005,
-								13027
+								14780,
+								14780
 							]
 						],
 						"settings":
@@ -868,169 +720,84 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 4760.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/C/Users/admin/.ssh/id_rsa.pub",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 746,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								746,
-								746
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "resources/views/amz_tshirt_form.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 12380,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10666,
-								10666
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 6426.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "storage/app/keywordbanned.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 29920,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								42,
-								47
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 324.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "resources/views/edit_csv.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3120,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								217,
-								217
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "app/Exports/EbayCSVExport.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 15314,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								14628,
-								14628
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 3426.0,
+						"translation.y": 7910.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "app/Exports/AmazonCSVExport.php",
+					"buffer": 1,
+					"file": "app/helper.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9849,
+						"buffer_size": 9035,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4489,
-								4489
+								6314,
+								6314
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 690.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/Exports/EbayCSVExport.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16017,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15014,
+								15014
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 3726.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/Exports/AmazonCSVExport.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10614,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6239,
+								6291
 							]
 						],
 						"settings":
@@ -1040,40 +807,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1062.0,
+						"translation.y": 2258.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "resources/views/exportcsv.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3225,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2072,
-								2072
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
 					"type": "text"
 				}
 			]
@@ -1118,7 +855,7 @@
 	"project": "amzcsv.sublime-project",
 	"replace":
 	{
-		"height": 50.0
+		"height": 70.0
 	},
 	"save_all_on_build": true,
 	"select_file":

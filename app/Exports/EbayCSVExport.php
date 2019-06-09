@@ -20,9 +20,9 @@ class EbayCSVExport implements FromCollection, WithHeadings
         	'shipping_profile_name'=>'customcat_shipping_policy',//PF_FR_GARMENT_DEFAULT
         	'return_profile_name'=>'PRINTFUL_RETURN_POLICY',
         	'payment_profile_name'=>'PayPal:Immediate pay',
-        	'clothing_category_id'=>155193,
+        	'clothing_category_id'=>155193,//
         	'drinkware_category_id'=>20695,
-        	'clothing_condition_id'=>1500,//new without tags
+        	'clothing_condition_id'=>1000,//1000:new with tags, 1500:new without tags
         	'manufacturer_location'=>48324,//customcat inc. states zipcode
         	'handle_time'=>5,//5 days handling time
         );

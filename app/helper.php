@@ -46,15 +46,15 @@ function clothing_config($type = '')
 		['title'=>'Mug 11 oz', 'name'=>'mug11oz', 'short_code'=>'M11', 'max_size'=>'11oz',
 			'color'=>['black','white'],
 			'print_location' =>[
-				'front' => array(220, 150),
-				'back' => array(80, 150)
+				'front' => array(490, 350),
+				'back' => array(210, 350)
 			]
 		],		
 		['title'=>'Mug 15 oz', 'name'=>'mug15oz', 'short_code'=>'M15', 'max_size'=>'15oz',
 			'color'=>['black','white'],
 			'print_location' =>[
-				'front' => array(220, 150),
-				'back' => array(60, 150)
+				'front' => array(500, 350),
+				'back' => array(170, 350)
 			]
 		],		
 
@@ -109,7 +109,7 @@ if(!function_exists('gen_mockup_front_side'))
 		$design = public_path().'/'.$design_file;
 
 		if(is_mug_type($type)){
-			$resize_design = array(420, 504); // resize png theo mockup cua mua
+			$resize_design = array(800, 968); // resize png theo mockup cua mua
 		}else{
 			$resize_design = array(580, 702); // resize png theo mockup cua ao
 		}
@@ -140,7 +140,7 @@ if(!function_exists('gen_mockup_back_side'))
 		$design = public_path().'/'.$design_file;
 
 		if(is_mug_type($type)){
-			$resize_design = array(420, 504); // resize png theo mockup cua mua
+			$resize_design = array(800, 968); // resize png theo mockup cua mua
 		}else{
 			$resize_design = array(630, 756); // resize png theo mockup ao
 		}

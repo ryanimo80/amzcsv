@@ -238,16 +238,7 @@ class AmazonTShirtController extends Controller
 	    	$profile = $profile->where('id', $req->selected_profile)->firstOrFail();
 	    	$colors = json_decode($profile->color);
 	    	//{"unisex-t-shirt":["black","red","royal"],"tank-top":["red"],"hoodie":["red","royal"],"long-sleeve":["red","sapphia"],"v-neck":["red","sky"],"men-t-shirt":["red","berry"],"women-t-shirt":["black","blue","red"]}
-	    	$mockup = array();
-	    	foreach ($colors as $type => $color) {
-	    		# code...
-	    		$mockup[$type] = array();
-	    		foreach ($color as $value) {
-	    			# code...
-	    			$side = json_decode($profile->print_location);
-			    	$mockup[$type][$value] = gen_mockup($type, $side->$type, $req->filepng, $value);
-	    		}
-	    	}
+
 
 	    	# code...
 	    	$csvdata = new CSVDataModel();
@@ -268,7 +259,6 @@ class AmazonTShirtController extends Controller
 	    	$csvdata->searchterm_4 = (replace_keyword($req->searchterm_4, $req));
 	    	$csvdata->searchterm_5 = (replace_keyword($req->searchterm_5, $req));
 	    	$csvdata->description = (replace_keyword($req->description, $req));
-	    	$csvdata->mockup = json_encode($mockup);
 
 		    $validator = Validator::make($csvdata->toArray(), [
 		    	'item_name' => [new ValidBannedKeyword],
@@ -292,7 +282,24 @@ class AmazonTShirtController extends Controller
 	    		));		    	
 			}
 
-	    	$csvdata->save();//save to database
+	    	/**
+	    	* Generate mockup
+	    	*
+	    	*/
+	    	$mockup = array();
+	    	foreach ($colors as $type => $color) {
+	    		# code...
+	    		$mockup[$type] = array();
+	    		foreach ($color as $value) {
+	    			# code...
+	    			$side = json_decode($profile->print_location);
+			    	$mockup[$type][$value] = gen_mockup($type, $side->$type, $req->filepng, $value);
+	    		}
+	    	}	    	
+	    	$csvdata->mockup = json_encode($mockup);
+
+
+    		$csvdata->save();//save to database
 
 	    	return response()->json(array(
 	    		'message'=>'Successful',
