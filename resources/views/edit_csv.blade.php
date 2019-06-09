@@ -78,6 +78,21 @@
 			{{ Form::submit('Update', ['class'=>'button is-primary', 'name'=>'submit']) }}
 		</form>			
 	</div>
+	<div class="column">
+
+		
+
+		<?php foreach (json_decode($csv->mockup, true) as $type => $color_mockup): ?>
+			<?php foreach ($color_mockup as $color => $mockup): ?>
+				<?php if(is_mug_type($type)){ ?>
+				<a href="<?php echo explode("|", $mockup)[0]; ?>"><img src="<?php echo explode("|", $mockup)[0]; ?>" width="75" /></a>
+				<a href="<?php echo explode("|", $mockup)[1]; ?>"><img src="<?php echo explode("|", $mockup)[1]; ?>" width="75" /></a>
+				<?php }else{ ?>
+				<a href="<?php echo $mockup; ?>"><img src="<?php echo $mockup; ?>" width="75" /></a>					
+				<?php } ?>
+			<?php endforeach ?>
+		<?php endforeach ?>
+	</div>
  
 </div>
 

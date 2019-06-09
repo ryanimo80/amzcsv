@@ -179,6 +179,24 @@ if(!function_exists('gen_mockup')){
 	}
 }
 
+function generate_png_mockup($file_png, $colors)
+{
+	/**
+	* Generate mockup
+	*
+	*/
+	$mockup = array();
+	foreach ($colors as $type => $color) {
+		# code...
+		$mockup[$type] = array();
+		foreach ($color as $value) {
+			# code...
+			$side = json_decode($profile->print_location);
+	    	$mockup[$type][$value] = gen_mockup($type, $side->$type, $file_png, $value);
+		}
+	}
+	return $mockup;
+}
 function randomstring($length)
 {
 	// $string = "";
