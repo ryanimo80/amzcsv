@@ -128,8 +128,9 @@ class CSVController extends Controller
     public function edit(Request $req)
     {
     	# code...
+    	$profile_list = ProfileModel::all()->pluck('name', 'id');
+
     	$csv = CSVDataModel::findOrFail($req->id);
-    	
     	$profile = ProfileModel::where('id', $csv->profile_id)->firstOrFail();
 
     	if($req->isMethod('POST')){
@@ -141,10 +142,11 @@ class CSVController extends Controller
 	                $path = '/files/'.time();
 	                $file->move(public_path().$path, $name);
 
-	                // $csvdata = CSVDataModel::where('id', $req->id)->first();
+			    	$profile = ProfileModel::where('id', $req->profile_id)->firstOrFail();
 			    	$mockup = generate_png_mockup($path.'/'.$name, $profile);
 	    			$csv->mockup = json_encode($mockup);
 	    			// dd($csv->mockup);
+	    			$csv->profile_id = $req->profile_id;
 			    	$csv->save();
 		         }
     		}
@@ -179,7 +181,9 @@ class CSVController extends Controller
     	return view('edit_csv',[
     		'title'=>'Edit ',
     		'message_type' =>0,
-    		'csv' => $csv
+    		'csv' => $csv,
+    		'current_profile' => $profile,
+    		'profile_list'=>$profile_list
     	]);
     }
 

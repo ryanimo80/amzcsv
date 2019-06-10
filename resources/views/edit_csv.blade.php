@@ -90,7 +90,7 @@
 </div>
 <div class="field">	
 	<div class="control">
-		<input type="submit" value="Update SKU" name="updatesku" class="button"/>
+		<input type="submit" value="Change SKU" name="updatesku" class="button"/>
 	</div>
 </div>
 		{{ Form::close() }}
@@ -112,14 +112,20 @@
     </span>
   </label>
 </div>
+<div class="field">
+	<div class="label">Profile</div>
+	<div class="select" id="select">
+			{{ Form::select('profile_id', $profile_list, $csv->profile_id, ['placeholder'=>'Select profile']) }}
+	</div>
+</div>
 <div class="field">	
 	<div class="control">
-		<input type="submit" value="Update mockup" name="updatemk" class="button"/>
+		<input type="submit" value="Generate Mockup" name="updatemk" class="button"/>
 	</div>
 </div>
 		{{ Form::close() }}
 <hr/>
-SKU: {{ $csv->item_sku }}
+		<strong>Current profile</strong>: {{ $current_profile->name }}
 <hr/>
 		<?php foreach (json_decode($csv->mockup, true) as $type => $color_mockup): ?>
 			<?php foreach ($color_mockup as $color => $mockup): ?>
