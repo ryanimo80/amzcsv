@@ -81,6 +81,23 @@
 	<div class="column">
 
 		{{ Form::open(array('url'=>url()->current(), 'enctype'=>"multipart/form-data")) }}
+<div class="field">	
+	<label class="label">New SKU:</label>
+	<div class="control">
+		<input type="text" name="new_sku" class="input" value="{{ $csv->item_sku }}"/>
+	</div>
+</div>
+<div class="field">	
+	<div class="control">
+		<input type="submit" value="Update SKU" name="updatesku" class="button"/>
+	</div>
+</div>
+		{{ Form::close() }}
+<hr/>
+
+		{{ Form::open(array('url'=>url()->current(), 'enctype'=>"multipart/form-data")) }}
+
+<label class="label">Upload a PNG:</label>
 <div class="field file">
   <label class="file-label">
     <input class="file-input" type="file" name="file_png">
@@ -99,7 +116,6 @@
 		<input type="submit" value="Update mockup" name="updatemk" class="button"/>
 	</div>
 </div>
-
 		{{ Form::close() }}
 <hr/>
 SKU: {{ $csv->item_sku }}

@@ -162,6 +162,11 @@ class CSVController extends Controller
 	    		$csv->description = $req->description;
 	    		$csv->save();
     		}
+
+    		if($req->get('updatesku')){
+	    		$csv->item_sku = $req->new_sku;
+	    		$csv->save();
+    		}    		
     	}
 
     	return view('edit_csv',[
