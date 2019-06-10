@@ -128,8 +128,9 @@ class CSVController extends Controller
     public function edit(Request $req)
     {
     	# code...
-    	$csv = CSVDataModel::find($req->id);
-    	$profile = ProfileModel::where('id', $csv->profile_id)->first();
+    	$csv = CSVDataModel::findOrFail($req->id);
+    	
+    	$profile = ProfileModel::where('id', $csv->profile_id)->firstOrFail();
 
     	if($req->isMethod('POST')){
     		if($req->get('updatemk')){
@@ -167,7 +168,11 @@ class CSVController extends Controller
     		if($req->get('updatesku')){
 	    		$csv->item_sku = $req->new_sku;
 	    		$csv->save();
-    		}    		
+    		}   
+
+    		if($req->get('delete')){
+	    		$csv->delete();
+    		}    		    		 		
     	}
 
     	return view('edit_csv',[
@@ -208,7 +213,7 @@ class CSVController extends Controller
 
 // \DB::enableQueryLog();
 			$csvData = CSVDataModel::where(function($query) use($req){
-						$keyword = $req->keyword;//str_replace('*','%', $req->keyword);
+						$keyword = str_replace('*','%', $req->keyword);
 							$query->orWhere('item_name','LIKE', '%'.$keyword.'%');
 							$query->orWhere('item_sku','LIKE', '%'.$keyword.'%');
 						})
@@ -216,7 +221,7 @@ class CSVController extends Controller
 						->orderBy('created_at', intval($req->sort_by)==0?'desc':'asc')
 						->paginate($item_per_page);
 // \Log::debug(\DB::getQueryLog());
-						
+
 			$csvData->appends(['search' => $req->keyword]);
 		}
 

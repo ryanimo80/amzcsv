@@ -76,6 +76,7 @@
 				</div>
 			</div>
 			{{ Form::submit('Update', ['class'=>'button is-primary', 'name'=>'updatekw']) }}
+			{{ Form::submit('Delete', ['class'=>'button', 'name'=>'delete']) }}
 		</form>			
 	</div>
 	<div class="column">
