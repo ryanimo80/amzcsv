@@ -363,3 +363,8 @@ function feed_type($type)
         $type = 'shirt';
     return $type;
 }
+
+function extract_numer($string)
+{
+	return preg_replace('/[^0-9]/', '', $string);	
+}

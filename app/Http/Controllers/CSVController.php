@@ -115,7 +115,7 @@ class CSVController extends Controller
 
 	    	return response()->json(array(
 	    		'message' => 'Successful',
-	    		'csv_id' => array('id'=>$csvdata->id)
+	    		'csv_id' => $csvdata->id
 	    	));
     	// }catch(\Exception $ex){
     	// 	return response()->json(array(
@@ -172,6 +172,7 @@ class CSVController extends Controller
 
     		if($req->get('delete')){
 	    		$csv->delete();
+	    		return redirect('/amz/export');
     		}    		    		 		
     	}
 

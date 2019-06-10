@@ -75,7 +75,9 @@
 </article>
 <article class="message is-success" v-if="isSuccess">
   <div class="message-body">
-  	@{{ success_message }}
+  	<div v-html="success_message">
+  		@{{ success_message }}	
+  	</div>
   </div>
 </article>
 <div class="columns">
@@ -319,7 +321,7 @@
 		el: "#mainapp{{ $loop->iteration }}",
 		data:{
 			title: '<?php echo $title;?>',
-			designid: '<?php echo $design_id ?>',
+			designid: '<?php echo extract_numer($design_id) ?>',
 			design_month: <?php echo $month_index ?>,
 			main_keyword: '<?php echo $keyword ?>',
 			bulletpoint1: `<?php echo $keywords->bulletpoint_1 ?>`,
@@ -385,7 +387,7 @@
 						this.isError = true;
 					}else{
 						this.success_message = "Data saved successfully! ";
-						this.success_message += "<a target='_blank' href='".response["data"]['csv_id']."'>View</a>";
+						this.success_message += "<a target='_blank' href='/amz/edit/"+response["data"]['csv_id']+"'>View</a>";
 						this.isSuccess = true;
 					}
 				});
