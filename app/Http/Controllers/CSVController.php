@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
 use Illuminate\Http\Request;
 use App\KeywordModel;
 use App\ProfileModel;
@@ -55,8 +56,7 @@ class CSVController extends Controller
 		        'description' => 'bail|required',		        
 		    ]);
 
-	    	$profile = new ProfileModel();
-	    	$profile = $profile->where('id', $req->selected_profile)->firstOrFail();
+	    	$profile = ProfileModel::where('id', $req->selected_profile)->firstOrFail();
 	    	$colors = json_decode($profile->color);
 	    	//{"unisex-t-shirt":["black","red","royal"],"tank-top":["red"],"hoodie":["red","royal"],"long-sleeve":["red","sapphia"],"v-neck":["red","sky"],"men-t-shirt":["red","berry"],"women-t-shirt":["black","blue","red"]}
 
@@ -107,14 +107,15 @@ class CSVController extends Controller
 	    	* Generate mockup
 	    	*
 	    	*/
-	    	$mockup = generate_png_mockup($req->filepng, $colors);
+	    	$mockup = generate_png_mockup($req->filepng, $profile);
 
 	    	$csvdata->mockup = json_encode($mockup);
 
     		$csvdata->save();//save to database
 
 	    	return response()->json(array(
-	    		'message'=>'Successful',
+	    		'message' => 'Successful',
+	    		'csv_id' => array('id'=>$csvdata->id)
 	    	));
     	// }catch(\Exception $ex){
     	// 	return response()->json(array(
@@ -205,14 +206,17 @@ class CSVController extends Controller
 				}
 			}
 
+// \DB::enableQueryLog();
 			$csvData = CSVDataModel::where(function($query) use($req){
-						$keyword = str_replace('*','%', $req->keyword);
+						$keyword = $req->keyword;//str_replace('*','%', $req->keyword);
 							$query->orWhere('item_name','LIKE', '%'.$keyword.'%');
 							$query->orWhere('item_sku','LIKE', '%'.$keyword.'%');
 						})
-						->where('is_exported', intval($req->filter)<2?'=':'>', intval($req->filter)!=2?$req->filter:0)
+						->where('is_exported', intval($req->filter)<2?'=':'>=', intval($req->filter)!=2?$req->filter:0)
 						->orderBy('created_at', intval($req->sort_by)==0?'desc':'asc')
 						->paginate($item_per_page);
+// \Log::debug(\DB::getQueryLog());
+						
 			$csvData->appends(['search' => $req->keyword]);
 		}
 

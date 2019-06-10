@@ -384,7 +384,8 @@
 						}
 						this.isError = true;
 					}else{
-						this.success_message = "Data saved successfully!";
+						this.success_message = "Data saved successfully! ";
+						this.success_message += "<a target='_blank' href='".response["data"]['csv_id']."'>View</a>";
 						this.isSuccess = true;
 					}
 				});
