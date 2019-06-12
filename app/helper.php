@@ -106,7 +106,12 @@ if(!function_exists('gen_mockup_front_side'))
 		$time = time();
 		$print_location = get_print_sizes('front');
 		$mockup_file = 'front-'.$type.'.jpg';
-		$design = public_path().'/'.$design_file;
+
+		if(file_exists($design_file)){
+			$design = $design_file;			
+		}else{
+			$design = public_path().'/'.$design_file;			
+		}
 
 		if(is_mug_type($type)){
 			$resize_design = array(800, 968); // resize png theo mockup cua mua
@@ -137,7 +142,12 @@ if(!function_exists('gen_mockup_back_side'))
 		$time = time();
 		$print_location = get_print_sizes('back');		
 		$mockup_file = 'back-'.$type.'.jpg';
-		$design = public_path().'/'.$design_file;
+		
+		if(file_exists($design_file)){
+			$design = $design_file;			
+		}else{
+			$design = public_path().'/'.$design_file;			
+		}
 
 		if(is_mug_type($type)){
 			$resize_design = array(800, 968); // resize png theo mockup cua mua
@@ -302,14 +312,14 @@ function remove_banned_keywords($text)
 	return $text;
 }
 
-function replace_keyword($text, $request)
+function replace_keyword($text, $keyword="", $keyword1="", $keyword2="")
 {
 	# code...
 	// allow only letters
 	// $text = remove_banned_keywords($text);
-	$new_text = trim(str_replace('[keyword]', $request->keyword, $text));
-	$new_text = replace_keyword1($new_text, $request);
-	$new_text = replace_keyword2($new_text, $request);
+	$new_text = trim(str_replace('[keyword]', $keyword, $text));
+	$new_text = trim(str_replace('[keyword1]', $keyword1, $new_text));
+	$new_text = trim(str_replace('[keyword2]', $keyword2, $new_text));
 	$new_text = ucfirst(replace_brand($new_text));
 	return $new_text;
 }
@@ -317,16 +327,6 @@ function replace_keyword($text, $request)
 function replace_brand($text){
 	$new_text = trim(str_replace('[brand]', brand_name(), $text));	
 	return $new_text;	
-}
-function replace_keyword1($text, $request)
-{
-	$new_text = trim(str_replace('[keyword1]', isset($request->receiver)?$request->receiver:'', $text));
-	return $new_text;
-}
-function replace_keyword2($text, $request)
-{
-	$new_text = trim(str_replace('[keyword2]', isset($request->interest)?$request->interest:'', $text));
-	return $new_text;
 }
 
 function get_banned_keywords()

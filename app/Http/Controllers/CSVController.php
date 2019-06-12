@@ -67,19 +67,19 @@ class CSVController extends Controller
 	    	$csvdata->brand_name = brand_name();
 	    	$csvdata->profile_id = intval($req->selected_profile);
 	    	$csvdata->design_month = intval($req->design_month)+1;
-	    	$csvdata->item_name = replace_keyword($req->item_name, $req);
 	    	$csvdata->item_sku = gen_item_sku(date('y'), $csvdata->design_month, $req->design_id);
-	    	$csvdata->bulletpoint_1 = (replace_keyword($req->bulletpoint_1, $req));
-	    	$csvdata->bulletpoint_2 = (replace_keyword($req->bulletpoint_2, $req));
-	    	$csvdata->bulletpoint_3 = (replace_keyword($req->bulletpoint_3, $req));
-	    	$csvdata->bulletpoint_4 = (replace_keyword($req->bulletpoint_4, $req));
-	    	$csvdata->bulletpoint_5 = (replace_keyword($req->bulletpoint_5, $req));
-	    	$csvdata->searchterm_1 = (replace_keyword($req->searchterm_1, $req));
-	    	$csvdata->searchterm_2 = (replace_keyword($req->searchterm_2, $req));
-	    	$csvdata->searchterm_3 = (replace_keyword($req->searchterm_3, $req));
-	    	$csvdata->searchterm_4 = (replace_keyword($req->searchterm_4, $req));
-	    	$csvdata->searchterm_5 = (replace_keyword($req->searchterm_5, $req));
-	    	$csvdata->description = (replace_keyword($req->description, $req));
+	    	$csvdata->item_name = replace_keyword($req->item_name, $req->keyword, $req->receiver, $req->interest);
+	    	$csvdata->bulletpoint_1 = replace_keyword($req->bulletpoint_1, $req->keyword, $req->receiver, $req->interest);
+	    	$csvdata->bulletpoint_2 = replace_keyword($req->bulletpoint_2, $req->keyword, $req->receiver, $req->interest);
+	    	$csvdata->bulletpoint_3 = replace_keyword($req->bulletpoint_3, $req->keyword, $req->receiver, $req->interest);
+	    	$csvdata->bulletpoint_4 = replace_keyword($req->bulletpoint_4, $req->keyword, $req->receiver, $req->interest);
+	    	$csvdata->bulletpoint_5 = replace_keyword($req->bulletpoint_5, $req->keyword, $req->receiver, $req->interest);
+	    	$csvdata->searchterm_1 = replace_keyword($req->searchterm_1, $req->keyword, $req->receiver, $req->interest);
+	    	$csvdata->searchterm_2 = replace_keyword($req->searchterm_2, $req->keyword, $req->receiver, $req->interest);
+	    	$csvdata->searchterm_3 = replace_keyword($req->searchterm_3, $req->keyword, $req->receiver, $req->interest);
+	    	$csvdata->searchterm_4 = replace_keyword($req->searchterm_4, $req->keyword, $req->receiver, $req->interest);
+	    	$csvdata->searchterm_5 = replace_keyword($req->searchterm_5, $req->keyword, $req->receiver, $req->interest);
+	    	$csvdata->description = replace_keyword($req->description, $req->keyword, $req->receiver, $req->interest);
 
 		    $validator = Validator::make($csvdata->toArray(), [
 		    	'item_name' => [new ValidBannedKeyword],
@@ -128,10 +128,18 @@ class CSVController extends Controller
     public function edit(Request $req)
     {
     	# code...
-    	$profile_list = ProfileModel::all()->pluck('name', 'id');
+    	// dd($req->id);
+// \DB::enableQueryLog();
+    	$csv = CSVDataModel::find($req->id);
+    	// dd($csv);
+// \Log::debug(\DB::getQueryLog());
+		$profile = ProfileModel::where('id', $csv->profile_id)->first();
+		if(!isset($profile->id)){// profile bi xoa
+			$profile = new ProfileModel();
+			$profile->name = 'Cannot not found profile name.';
+		}
 
-    	$csv = CSVDataModel::findOrFail($req->id);
-    	$profile = ProfileModel::where('id', $csv->profile_id)->firstOrFail();
+    	$profile_list = ProfileModel::all()->pluck('name', 'id');
 
     	if($req->isMethod('POST')){
     		if($req->get('updatemk')){
@@ -193,8 +201,12 @@ class CSVController extends Controller
 		$marketplace = array('Amazon', 'eBay', 'Wish');
 		$date = date("Y_m_d_H_i");
 		$filter = array('New', 'Exported', 'All');
-		$number_per_page = array(20, 50, 100, 200);
-		$item_per_page = isset($req->number_per_page)?$number_per_page[$req->number_per_page]:$number_per_page[1];
+		$number_per_page = array(20, 50, 100, 200);//dd($req->number_per_page);
+		if($req->get('per_page')){
+			$item_per_page = $req->get('per_page');
+		}else{
+			$item_per_page = !isset($req->number_per_page)?$number_per_page[3]:$number_per_page[$req->get('number_per_page')];
+		}
 		$sort_by = array('Created - Desc', 'Created - Asc');
 
 		if($req->isMethod('POST')){
@@ -227,7 +239,6 @@ class CSVController extends Controller
 						->paginate($item_per_page);
 // \Log::debug(\DB::getQueryLog());
 
-			$csvData->appends(['search' => $req->keyword]);
 		}
 
 		if(!isset($csvData)){
@@ -235,6 +246,9 @@ class CSVController extends Controller
 						->orderBy('created_at', 'desc')
 						->paginate($item_per_page);
 		}
+
+		$csvData->appends(['search' => $req->keyword]);
+		$csvData->appends(['per_page' => $item_per_page]);
 		return view('exportcsv',[
 			'title' => 'Export CSV',
 			'message_type'=>0,
