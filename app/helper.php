@@ -93,7 +93,7 @@ function  get_print_sizes($location='front')
 
 function is_mug_type($type)
 {
-	if(in_array($type, array('mug11oz', 'mug15oz'))){
+	if(in_array($type, array('mug11oz', 'mug15oz'))){//
 		return true;
 	}
 	return false;
@@ -317,9 +317,9 @@ function replace_keyword($text, $keyword="", $keyword1="", $keyword2="")
 	# code...
 	// allow only letters
 	// $text = remove_banned_keywords($text);
-	$new_text = trim(str_replace('[keyword]', $keyword, $text));
-	$new_text = trim(str_replace('[keyword1]', $keyword1, $new_text));
-	$new_text = trim(str_replace('[keyword2]', $keyword2, $new_text));
+	$new_text = trim(str_replace('[keyword]', strtoupper($keyword), $text));
+	$new_text = trim(str_replace('[keyword1]', strtoupper($keyword1), $new_text));
+	$new_text = trim(str_replace('[keyword2]', strtoupper($keyword2), $new_text));
 	$new_text = ucfirst(replace_brand($new_text));
 	return $new_text;
 }

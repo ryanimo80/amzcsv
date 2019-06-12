@@ -82,21 +82,6 @@
 	<div class="column">
 
 		{{ Form::open(array('url'=>url()->current(), 'enctype'=>"multipart/form-data")) }}
-<div class="field">	
-	<label class="label">New SKU:</label>
-	<div class="control">
-		<input type="text" name="new_sku" class="input" value="{{ $csv->item_sku }}"/>
-	</div>
-</div>
-<div class="field">	
-	<div class="control">
-		<input type="submit" value="Change SKU" name="updatesku" class="button"/>
-	</div>
-</div>
-		{{ Form::close() }}
-<hr/>
-
-		{{ Form::open(array('url'=>url()->current(), 'enctype'=>"multipart/form-data")) }}
 
 <label class="label">Upload a PNG:</label>
 <div class="field file">
@@ -120,11 +105,29 @@
 </div>
 <div class="field">	
 	<div class="control">
-		<input type="submit" value="Generate Mockup" name="updatemk" class="button"/>
+		<input type="submit" value="Generate Mockup" name="updatemk" class="button is-primary"/>
+	</div>
+</div>
+		{{ Form::close() }}
+
+<hr/>
+
+		{{ Form::open(array('url'=>url()->current(), 'enctype'=>"multipart/form-data")) }}
+<div class="field">	
+	<label class="label">New SKU:</label>
+	<div class="control">
+		<input type="text" name="new_sku" class="input" value="{{ $csv->item_sku }}"/>
+	</div>
+</div>
+<div class="field">	
+	<div class="control">
+		<input type="submit" value="Change SKU" name="updatesku" class="button"/>
 	</div>
 </div>
 		{{ Form::close() }}
 <hr/>
+
+
 		<strong>Current profile</strong>: {{ $current_profile->name }}
 <hr/>
 		<?php foreach (json_decode($csv->mockup, true) as $type => $color_mockup): ?>

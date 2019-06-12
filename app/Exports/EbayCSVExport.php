@@ -77,25 +77,60 @@ class EbayCSVExport implements FromCollection, WithHeadings
 				$colors = implode(";", array_map("ucfirst", $type_list[$type]));
 				$type_mockup = head(array_values($value_mockup[$type]));
 				$type_mockup .= '|https://images-na.ssl-images-amazon.com/images/I/71NAb%2BddamL._SX679._SX._UX._SY._UY_.jpg|https://images-na.ssl-images-amazon.com/images/I/71BhzMr-zgL._UL1500_.jpg';
-    			$data_parent = array(
-					array(//parent
-						"Add",$parent_sku.'-'.$type_config['short_code'],is_mug_type($type)?$this->eBay_config['drinkware_category_id']:$this->eBay_config['clothing_category_id'],"",ucfirst($value->item_name)." ".$type_config['title'],"","","Size=".$sizes."|Color=".$colors,$this->eBay_config['clothing_condition_id'],"","Unbranded","Does Not Apply",
-						is_mug_type($type)?"Mug":"Basic Tee","","",is_mug_type($type)?"Ceramic":"100% Cotton","No","","","","United States","",
-						$type_mockup,"",$description,"FixedPrice","GTC",$price,"","","1",$this->eBay_config['paypal_email'],"1","",$this->eBay_config['manufacturer_location'],"Flat","","","","",$this->eBay_config['handle_time'],"","","","ReturnsNotAccepted","","","","","",$this->eBay_config['shipping_profile_name'],$this->eBay_config['return_profile_name'],$this->eBay_config['payment_profile_name']
-					)
-				);
-				$exportdata->push($data_parent);
-				$data = array();
-	
-    			foreach ($mockup_list as $color => $link) {
-    				# code...
-    				$data[] = $this->listing_by_profile($value, $type, $color, $profile);
-    			}
 
-    			foreach ($data as $key => $data_row) {
-    				# code...
-					$exportdata->push($data_row);
-    			}
+
+				/**
+				* Doi voi mug chi xuat dang 11oz
+				*/
+				if($type_config['short_code']=='M15') continue;
+
+				/**
+				 * Them keyword chinh vao title san pham
+				 */
+				// if(strpos(strtolower($value->item_name), 'nurse') == false){
+				// 	$value->item_name = 'Nurse '.$value->item_name;
+				// 	// dd($value->item_name);
+				// }
+
+				/**
+				 * Truong hop san pham chi co 1 item thi khong co parent
+				 */
+				if(count($type_sizes)==1){
+	    			$item = array(
+						array(//parent
+							"Add",$parent_sku.'-'.$type_config['short_code'],is_mug_type($type)?$this->eBay_config['drinkware_category_id']:$this->eBay_config['clothing_category_id'],"",ucfirst($value->item_name)." ".$type_config['title'],"","","",$this->eBay_config['clothing_condition_id'],"","Unbranded","Does Not Apply",
+							is_mug_type($type)?"Mug":"Basic Tee","","",is_mug_type($type)?"Ceramic":"100% Cotton","No","","","","United States","",
+							$type_mockup,"",$description,"FixedPrice","GTC",$price,"","","1",$this->eBay_config['paypal_email'],"1","",$this->eBay_config['manufacturer_location'],"Flat","","","","",$this->eBay_config['handle_time'],"","","","ReturnsNotAccepted","","","","","",$this->eBay_config['shipping_profile_name'],$this->eBay_config['return_profile_name'],$this->eBay_config['payment_profile_name']
+						)
+					);
+				$exportdata->push($item);
+
+				}else{
+					/**
+					 * Truong hop san pham co nhieu child item
+					 */
+	    			$data_parent = array(
+						array(//parent
+							"Add",$parent_sku.'-'.$type_config['short_code'],is_mug_type($type)?$this->eBay_config['drinkware_category_id']:$this->eBay_config['clothing_category_id'],"",ucfirst($value->item_name)." ".$type_config['title'],"","","Size=".$sizes."|Color=".$colors,$this->eBay_config['clothing_condition_id'],"","Unbranded","Does Not Apply",
+							is_mug_type($type)?"Mug":"Basic Tee","","",is_mug_type($type)?"Ceramic":"100% Cotton","No","","","","United States","",
+							$type_mockup,"",$description,"FixedPrice","GTC",$price,"","","1",$this->eBay_config['paypal_email'],"1","",$this->eBay_config['manufacturer_location'],"Flat","","","","",$this->eBay_config['handle_time'],"","","","ReturnsNotAccepted","","","","","",$this->eBay_config['shipping_profile_name'],$this->eBay_config['return_profile_name'],$this->eBay_config['payment_profile_name']
+						)
+					);
+					$exportdata->push($data_parent);
+					$data = array();
+		
+	    			foreach ($mockup_list as $color => $link) {
+	    				# code...
+	    				$data[] = $this->listing_by_profile($value, $type, $color, $profile);
+	    			}
+
+	    			foreach ($data as $key => $data_row) {
+	    				# code...
+						$exportdata->push($data_row);
+	    			}
+
+				}
+
 
     		}
 
