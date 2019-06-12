@@ -12,6 +12,8 @@ class EbayCSVExport implements FromCollection, WithHeadings
 {
 	protected $eBay_config = array();
 	protected $selected_item = array();
+	protected $default_quantity = 2;
+
     public function __construct($selected_item = array())
     {
     	$this->selected_item = $selected_item;
@@ -100,10 +102,10 @@ class EbayCSVExport implements FromCollection, WithHeadings
 						array(//parent
 							"Add",$parent_sku.'-'.$type_config['short_code'],is_mug_type($type)?$this->eBay_config['drinkware_category_id']:$this->eBay_config['clothing_category_id'],"",ucfirst($value->item_name)." ".$type_config['title'],"","","",$this->eBay_config['clothing_condition_id'],"","Unbranded","Does Not Apply",
 							is_mug_type($type)?"Mug":"Basic Tee","","",is_mug_type($type)?"Ceramic":"100% Cotton","No","","","","United States","",
-							$type_mockup,"",$description,"FixedPrice","GTC",$price,"","","1",$this->eBay_config['paypal_email'],"1","",$this->eBay_config['manufacturer_location'],"Flat","","","","",$this->eBay_config['handle_time'],"","","","ReturnsNotAccepted","","","","","",$this->eBay_config['shipping_profile_name'],$this->eBay_config['return_profile_name'],$this->eBay_config['payment_profile_name']
+							$type_mockup,"",$description,"FixedPrice","GTC",$price,"",$this->default_quantity,"1",$this->eBay_config['paypal_email'],"1","",$this->eBay_config['manufacturer_location'],"Flat","","","","",$this->eBay_config['handle_time'],"","","","ReturnsNotAccepted","","","","","",$this->eBay_config['shipping_profile_name'],$this->eBay_config['return_profile_name'],$this->eBay_config['payment_profile_name']
 						)
 					);
-				$exportdata->push($item);
+					$exportdata->push($item);
 
 				}else{
 					/**
@@ -113,7 +115,7 @@ class EbayCSVExport implements FromCollection, WithHeadings
 						array(//parent
 							"Add",$parent_sku.'-'.$type_config['short_code'],is_mug_type($type)?$this->eBay_config['drinkware_category_id']:$this->eBay_config['clothing_category_id'],"",ucfirst($value->item_name)." ".$type_config['title'],"","","Size=".$sizes."|Color=".$colors,$this->eBay_config['clothing_condition_id'],"","Unbranded","Does Not Apply",
 							is_mug_type($type)?"Mug":"Basic Tee","","",is_mug_type($type)?"Ceramic":"100% Cotton","No","","","","United States","",
-							$type_mockup,"",$description,"FixedPrice","GTC",$price,"","","1",$this->eBay_config['paypal_email'],"1","",$this->eBay_config['manufacturer_location'],"Flat","","","","",$this->eBay_config['handle_time'],"","","","ReturnsNotAccepted","","","","","",$this->eBay_config['shipping_profile_name'],$this->eBay_config['return_profile_name'],$this->eBay_config['payment_profile_name']
+							$type_mockup,"",$description,"FixedPrice","GTC",$price,"",$this->default_quantity,"1",$this->eBay_config['paypal_email'],"1","",$this->eBay_config['manufacturer_location'],"Flat","","","","",$this->eBay_config['handle_time'],"","","","ReturnsNotAccepted","","","","","",$this->eBay_config['shipping_profile_name'],$this->eBay_config['return_profile_name'],$this->eBay_config['payment_profile_name']
 						)
 					);
 					$exportdata->push($data_parent);
@@ -172,7 +174,7 @@ class EbayCSVExport implements FromCollection, WithHeadings
 			$clothing_type = is_mug_type($type_name)?"Mug":"Basic Tee";
 	    	$data_variant[] = array(
 						"Add",$child_sku,is_mug_type($type_name)?$this->eBay_config['drinkware_category_id']:$this->eBay_config['clothing_category_id'],"",
-						ucfirst($value->item_name)." ".$type_config['title'].(is_mug_type($type_name)?'':" ".$ts_key),"","Variation","Size=".$ts_key."|Color=".ucfirst($color),$this->eBay_config['clothing_condition_id'],"","Unbranded","Does Not Apply",$clothing_type,"","",is_mug_type($type_name)?"Ceramic":"100% Cotton","No","","","","United States","",$type_mockup,"",$description,"FixedPrice","GTC",$price,"","1","1",$this->eBay_config['paypal_email'],"1","",$this->eBay_config['manufacturer_location'],"Flat","","","","",$this->eBay_config['handle_time'],"","","","ReturnsNotAccepted","","","","","",$this->eBay_config['shipping_profile_name'],$this->eBay_config['return_profile_name'],$this->eBay_config['payment_profile_name']
+						ucfirst($value->item_name)." ".$type_config['title'].(is_mug_type($type_name)?'':" ".$ts_key),"","Variation","Size=".$ts_key."|Color=".ucfirst($color),$this->eBay_config['clothing_condition_id'],"","Unbranded","Does Not Apply",$clothing_type,"","",is_mug_type($type_name)?"Ceramic":"100% Cotton","No","","","","United States","",$type_mockup,"",$description,"FixedPrice","GTC",$price,"",$this->default_quantity,"1",$this->eBay_config['paypal_email'],"1","",$this->eBay_config['manufacturer_location'],"Flat","","","","",$this->eBay_config['handle_time'],"","","","ReturnsNotAccepted","","","","","",$this->eBay_config['shipping_profile_name'],$this->eBay_config['return_profile_name'],$this->eBay_config['payment_profile_name']
 					);
 			if($i>=count($type_sizes)-4){
 				$price++;

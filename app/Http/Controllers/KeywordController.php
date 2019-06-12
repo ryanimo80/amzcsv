@@ -47,7 +47,7 @@ class KeywordController extends Controller
 		        'description' => 'bail|required',		        
 		    ]);
 		    if($validator->fails()){
-		    	return back()->withErrors($validatedData->errors());
+		    	return back()->withErrors($validator->errors());
 		    }
 
 		    $validator = Validator::make($req->all(), [
