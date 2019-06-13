@@ -47,7 +47,8 @@ class KeywordController extends Controller
 		        'description' => 'bail|required',		        
 		    ]);
 		    if($validator->fails()){
-		    	return back()->withErrors($validator->errors());
+				\Session::flash('errors', $validator->errors());		    	
+		    	//return back()->withErrors($validator->errors());
 		    }
 
 		    $validator = Validator::make($req->all(), [
@@ -65,8 +66,10 @@ class KeywordController extends Controller
 		        'description' => [new ValidBannedKeyword],
 		    ]);
 		    if($validator->fails()){
-		    	return back()->withErrors($validator->errors());
+				\Session::flash('errors', $validator->errors());
+		    	//return back()->withErrors($validator->errors());
 		    }
+
 
 
     		if($req->has('submit')){
@@ -82,7 +85,8 @@ class KeywordController extends Controller
 		    	$keyword->searchterm_4 = ($req->searchterm_4);
 		    	$keyword->searchterm_5 = ($req->searchterm_5);
 		    	$keyword->description = ($req->description);
-	    		$keyword->save();
+	    		if(!$validator->fails()) 
+	    			$keyword->save();
     		}
     		if($req->has('create')){
     			$data = array(
@@ -99,10 +103,10 @@ class KeywordController extends Controller
 			    	'searchterm_5' => ($req->searchterm_5),
 			    	'description' => ($req->description),
     			);
-				KeywordModel::create($data);
+	    		if(!$validator->fails())
+					KeywordModel::create($data);
     		}
     	}
-    	
     	return view('keyword',[
     		'title' => 'Create new keyword',
     		'keyword_list' => $keyword_list,
@@ -121,12 +125,10 @@ class KeywordController extends Controller
     }
 
 
-    public function kwjson($id)
+    public function kwjson(Request $req)
     {
     	$kw = array();
-    	if(intval($id)>0){
-    		$kw = KeywordModel::find(array('id'=>$id));
-    	}
+		$kw = KeywordModel::find(array('id'=>$req->id));
     	return response()->json($kw);    	
     }
 
