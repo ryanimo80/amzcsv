@@ -145,7 +145,7 @@ class AmazonCSVExport implements FromCollection, WithHeadings
 		$banner_url2 = 'https://images-na.ssl-images-amazon.com/images/I/71BhzMr-zgL._UL1500_.jpg';
 		$print_location = json_decode($profile->print_location);
 		$print_location = $print_location->$type;
-		$mockup_blank_side = $this->get_blank_mockup($type, $color, $print_location==0?1:0 );
+		// $mockup_blank_side = $this->get_blank_mockup($type, $color, $print_location==0?1:0 );
 
     	foreach ($sizes as $size_name=>$size_map) {
     		# code...
@@ -164,8 +164,8 @@ class AmazonCSVExport implements FromCollection, WithHeadings
 							$price,'999','Migrated Template',
 
 							is_mug_type($type)?(explode('|',$mockup_url)[0]):$mockup_url, // neu la mug thi mockup co 2 gia tri
-							is_mug_type($type)?(explode('|',$mockup_url)[1]):$mockup_blank_side,
-
+							is_mug_type($type)?(explode('|',$mockup_url)[1]):get_size_chart($type),
+                           
 							$banner_url1,
 							$banner_url2,
 							'Child',$value->item_sku,'Variation',

@@ -727,6 +727,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"workspace:",
+			"workspace",
+			"local_amzcsv",
+			"depen",
+			"depend_ons",
+			"depend_on",
+			"local_amzcsv",
+			"depend",
 			"wordpress",
 			"nginx",
 			"www-data",
@@ -853,7 +861,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -1039,8 +1047,8 @@
 						"selection":
 						[
 							[
-								15774,
-								15774
+								16232,
+								16232
 							]
 						],
 						"settings":
@@ -1050,10 +1058,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 7683.0,
+						"translation.y": 7539.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1078,10 +1086,10 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 3590.0,
+						"translation.y": 2700.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
