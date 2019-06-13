@@ -13,6 +13,8 @@ class EbayCSVExport implements FromCollection, WithHeadings
 	protected $eBay_config = array();
 	protected $selected_item = array();
 	protected $default_quantity = 2;
+    protected $export_by_profile = null;
+    protected $export_by_csvdata = null;
 
     public function __construct($selected_item = array())
     {
@@ -42,16 +44,21 @@ class EbayCSVExport implements FromCollection, WithHeadings
     public function collection()
     {
         //
-        if(count($this->selected_item)>0){
-            $csvdatas = CSVDataModel::whereIn('id', $this->selected_item)->get();
-        }else{
-            $csvdatas = CSVDataModel::where('is_exported', 0)->get();
-        }
+        // if(count($this->selected_item)>0){
+        //     $csvdatas = CSVDataModel::whereIn('id', $this->selected_item)->get();
+        // }else{
+        //     $csvdatas = CSVDataModel::where('is_exported', 0)->get();
+        // }
+        
+        $csvdatas = $this->get_csvdata();
+
         $exportdata = new Collection();
 
     	foreach ($csvdatas as $key => $value) {
     		# code...
-    		$profile = ProfileModel::where('id', $value->profile_id)->first();
+    		// $profile = ProfileModel::where('id', $value->profile_id)->first();
+    		$profile = $this->get_profile($value->profile_id);
+
     		$type_list = json_decode($profile->color, true);
 			# code...
 	    	$value_mockup = json_decode($value->mockup, true);
@@ -183,4 +190,43 @@ class EbayCSVExport implements FromCollection, WithHeadings
 		}
 		return $data_variant;
     }
+
+    public function set_profile($profile)
+    {
+        # code...
+        $this->export_by_profile = $profile;
+    }
+
+    public function get_profile($profile_id)
+    {
+        # code...
+        if($this->export_by_profile == null)
+            $profile = ProfileModel::where('id', $profile_id)->first();
+        else
+            $profile = $this->export_by_profile;
+
+        return $profile;
+    }
+
+    public function set_csvdata($csvdata)
+    {
+        # code...
+        $this->export_by_csvdata = $csvdata;
+    }
+
+    public function get_csvdata()
+    {
+        # code...
+        if($this->export_by_csvdata == null)
+        {
+            if(count($this->selected_item)>0){
+                $csvdatas = CSVDataModel::whereIn('id', $this->selected_item)->get();
+            }else{
+                $csvdatas = CSVDataModel::where('is_exported', 0)->get();
+            }  
+            return $csvdata;          
+        }
+        $csvdatas = [$this->export_by_csvdata];
+        return $csvdatas;
+    }    
 }

@@ -4,12 +4,13 @@ use Illuminate\Support\Str;
 include_once('teezily_helper.php');
 include_once('minify_helper.php');
 
-function clothing_config($type = '')
+function clothing_config($type='')
 {
-	if(isset($type)){
+	if($type!=''){
 		$product = \Config::get('product.'.$type);
+		return $product;
 	}
-
+// 
 	return \Config::get('product');
 }
 
@@ -170,13 +171,20 @@ function color_map($c)
 	$color = array(
 		'black' => 'BL',
 		'navy'	=> 'NV',
-		'white' => 'WH'
+		'white' => 'WH',
+		'charcoal' => "CC",
+		'ash' => 'AS',
+		'royal' => 'RY',
+		'forest' => 'FR',
+		'red' => 'RD', 
+		'white' => 'WT'
 	);
 	return $color[$c];
 }
 
 function type_map($t){
 	$type = array();
+	// dd(clothing_config());
 	foreach (clothing_config() as $key => $value) {
 		# code...
 		$type[ $value['name'] ] = $value['title'];

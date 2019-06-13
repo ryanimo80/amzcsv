@@ -10,7 +10,9 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 class AmazonCSVExport implements FromCollection, WithHeadings
 {
     protected $selected_item = array();
-    
+    protected $export_by_profile = null;
+    protected $export_by_csvdata = null;
+
     public function __construct($selected_item = array())
     {
         $this->selected_item = $selected_item;
@@ -28,16 +30,13 @@ class AmazonCSVExport implements FromCollection, WithHeadings
 
     public function collection()
     {
-        if(count($this->selected_item)>0){
-            $csvdatas = CSVDataModel::whereIn('id', $this->selected_item)->get();
-        }else{
-            $csvdatas = CSVDataModel::where('is_exported', 0)->get();
-        }
+        $csvdatas = $this->get_csvdata();
     	$exportdata = new Collection();
 
     	foreach ($csvdatas as $key => $value) {
     		# code...
-    		$profile = ProfileModel::where('id', $value->profile_id)->first();
+            $profile = $this->get_profile($value->profile_id);
+
     		$type_list = json_decode($profile->color);
 			# code...
 	    	$value_mockup = json_decode($value->mockup);
@@ -110,6 +109,7 @@ class AmazonCSVExport implements FromCollection, WithHeadings
     public function listing_by_profile($value, $type, $color, $profile)
     {
         $clothing_type = clothing_config($type);
+        // dd($clothing_type);
         $short_code = $clothing_type['short_code'];
         $max_size = $clothing_type['max_size'];
 
@@ -228,5 +228,44 @@ class AmazonCSVExport implements FromCollection, WithHeadings
     	);
     	return '';
     	// return config('filesystems.disks.onedrive.url').$blank_mockup[$type][$color][$print_location];
+    }
+
+    public function set_profile($profile)
+    {
+        # code...
+        $this->export_by_profile = $profile;
+    }
+
+    public function get_profile($profile_id)
+    {
+        # code...
+        if($this->export_by_profile == null)
+            $profile = ProfileModel::where('id', $profile_id)->first();
+        else
+            $profile = $this->export_by_profile;
+
+        return $profile;
+    }
+
+    public function set_csvdata($csvdata)
+    {
+        # code...
+        $this->export_by_csvdata = $csvdata;
+    }
+
+    public function get_csvdata()
+    {
+        # code...
+        if($this->export_by_csvdata == null)
+        {
+            if(count($this->selected_item)>0){
+                $csvdatas = CSVDataModel::whereIn('id', $this->selected_item)->get();
+            }else{
+                $csvdatas = CSVDataModel::where('is_exported', 0)->get();
+            }  
+            return $csvdata;          
+        }
+        $csvdatas = [$this->export_by_csvdata];
+        return $csvdatas;
     }
 }

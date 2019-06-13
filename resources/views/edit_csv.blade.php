@@ -97,17 +97,34 @@
     </span>
   </label>
 </div>
+
 <div class="field">
 	<div class="label">Profile</div>
 	<div class="select" id="select">
 			{{ Form::select('profile_id', $profile_list, $csv->profile_id, ['placeholder'=>'Select profile']) }}
 	</div>
 </div>
+
 <div class="field">	
 	<div class="control">
 		<input type="submit" value="Generate Mockup" name="updatemk" class="button is-primary"/>
 	</div>
 </div>
+
+<div class="field">
+	<div class="label">Marketplace:</div>
+	<div class="select" id="select">
+			{{ Form::select('marketplace', $marketplace, null, ['placeholder'=>'Select marketplace']) }}
+	</div>
+</div>
+
+<div class="field">	
+	<div class="control">
+		<input type="submit" value="Generate Mockup & Export CSV" name="genmkcsv" class="button is-primary"/>
+	</div>
+</div>
+
+
 		{{ Form::close() }}
 
 <hr/>

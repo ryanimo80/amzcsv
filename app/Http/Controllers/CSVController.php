@@ -159,6 +159,35 @@ class CSVController extends Controller
 		         }
     		}
 
+
+    		if($req->get('genmkcsv')){
+		        if($req->hasfile('file_png'))
+		         {
+		            $file = $req->file('file_png');
+	                $name = $file->getClientOriginalName();
+	                $path = '/files/'.time();
+	                $file->move(public_path().$path, $name);
+
+			    	$profile = ProfileModel::where('id', $req->profile_id)->firstOrFail();
+			    	$mockup = generate_png_mockup($path.'/'.$name, $profile);
+	    			$csv->mockup = json_encode($mockup);
+
+	    			if(intval($req->marketplace)==2){
+	    				$export = WishCSVExport();
+	    			}else if(intval($req->marketplace)==1){
+	    				$export = new EbayCSVExport();
+	    			}else{
+	    				$export = new AmazonCSVExport();
+	    			}
+					$export->set_profile($profile);
+					$export->set_csvdata($csv);
+					$date = date("Y_m_d_H_i");
+					return Excel::download($export, 'amazon_clothing_'.$date.'.tsv');
+	    			// dd($csv->mockup);
+		         }
+    		}
+
+
     		if($req->get('updatekw')){
 	    		$csv->item_name = $req->item_name;
 	    		$csv->bulletpoint_1 = $req->bulletpoint_1;
@@ -186,12 +215,14 @@ class CSVController extends Controller
     		}    		    		 		
     	}
 
+		$marketplace = array('Amazon', 'eBay', 'Wish');
     	return view('edit_csv',[
     		'title'=>'Edit ',
     		'message_type' =>0,
     		'csv' => $csv,
     		'current_profile' => $profile,
-    		'profile_list'=>$profile_list
+    		'profile_list'=>$profile_list,
+    		'marketplace' => $marketplace
     	]);
     }
 
