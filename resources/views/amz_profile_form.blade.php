@@ -37,9 +37,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="column">
+			<div class="column is-half">
 				
-				<div class="columns">
+				<div class="columns is-pulled-left	">
 				<?php 
 					$current_color = get_object_vars(json_decode($current_profile->color)); 
 					$current_color = isset($current_color[$cl['name']])?$current_color[$cl['name']]:array();

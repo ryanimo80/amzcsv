@@ -44,8 +44,8 @@ return [
     'disks' => [
         'onedrive' => [
             'driver' => 'local',
-            'root' => \Config::get('amz.mockup.path'),
-            'url' => \Config::get('amz.mockup.public_url'),
+            'root' => config('amzcsv.mockup.path'),
+            'url' => config('amzcsv.mockup.public_url'),
             
         ],
 

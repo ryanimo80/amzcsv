@@ -32,16 +32,16 @@
 
            'women-tank' => [
                 'title'=>'Women Racerback Tank', 'name'=>'women-tank', 'short_code'=>'WT', 'max_size'=>'2XL',
-                'color'=>['black','navy','charcoal','grey','royal', 'forest','red'],
+                'color'=>['black','royal','red','heather grey','kelly','white'],
                 'print_location' =>[
-                    'front' => array(475, 500),
+                    'front' => array(470, 550),
                 ],
                 'size_chart' => 'https://images-na.ssl-images-amazon.com/images/I/615FEHETCnL._UL1254_.jpg'//https://cdn.shopify.com/s/files/1/2219/3745/files/chart_-_NL1533_Next_Level_Ladies_Ideal_Racerback_Tank.png?11730716537790178580'
             ],
 
             'tank-top' => [
                 'title'=>'Tank Top', 'name'=>'tank-top', 'short_code'=>'TT', 'max_size'=>'2XL',
-                'color'=>['black','navy','charcoal','grey','royal', 'forest','red'],
+                'color'=>['black','navy','sport grey','royal','red','white'],
                 'print_location' =>[
                     'front' => array(460, 470),
                     'back' => array(410, 200)

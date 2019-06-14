@@ -177,7 +177,10 @@ function color_map($c)
 		'royal' => 'RY',
 		'forest' => 'FR',
 		'red' => 'RD', 
-		'white' => 'WT'
+		'white' => 'WT',
+		'sport grey' => 'SG',
+		'heather grey' => 'HG',
+		'kelly' => 'KL'
 	);
 	return $color[$c];
 }
