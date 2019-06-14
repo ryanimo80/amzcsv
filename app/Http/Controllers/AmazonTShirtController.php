@@ -12,6 +12,7 @@ class AmazonTShirtController extends Controller
     //
     public function index()
     {
+        // return redirect("/amz/export");
     	$kw = KeywordModel::all()->pluck('main_keyword', 'id');
     	// $kw->splice(0, 0, ['Default']);
 
@@ -157,8 +158,12 @@ class AmazonTShirtController extends Controller
             foreach($request->file('pngs') as $file)
             {
                 $name=$file->getClientOriginalName();
-                $path = '/files/'.time();
-                $file->move(public_path().$path, $name);
+                // $path = '/files/'.time();
+                // $file->move(public_path().$path, $name);
+
+                $path = storage_png_path().'/files/'.time();
+                $file->move($path, $name);
+
                 $files[] = $path.'/'.$name;
             }
          }

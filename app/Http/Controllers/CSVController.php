@@ -80,6 +80,7 @@ class CSVController extends Controller
 	    	$csvdata->searchterm_4 = replace_keyword($req->searchterm_4, $req->keyword, $req->receiver, $req->interest);
 	    	$csvdata->searchterm_5 = replace_keyword($req->searchterm_5, $req->keyword, $req->receiver, $req->interest);
 	    	$csvdata->description = replace_keyword($req->description, $req->keyword, $req->receiver, $req->interest);
+	    	$csvdata->filepng = $req->filepng;
 
 		    $validator = Validator::make($csvdata->toArray(), [
 		    	'item_name' => [new ValidBannedKeyword],
@@ -128,15 +129,13 @@ class CSVController extends Controller
     public function edit(Request $req)
     {
     	# code...
-    	// dd($req->id);
-// \DB::enableQueryLog();
+		// \DB::enableQueryLog();
     	$csv = CSVDataModel::find($req->id);
-    	// dd($csv);
-// \Log::debug(\DB::getQueryLog());
+		// \Log::debug(\DB::getQueryLog());
 		$profile = ProfileModel::where('id', $csv->profile_id)->first();
 		if(!isset($profile->id)){// profile bi xoa
 			$profile = new ProfileModel();
-			$profile->name = 'Cannot not found profile name.';
+			$profile->name = 'Cannot found profile name.';
 		}
 
     	$profile_list = ProfileModel::all()->pluck('name', 'id');
@@ -147,13 +146,13 @@ class CSVController extends Controller
 		         {
 		            $file = $req->file('file_png');
 	                $name = $file->getClientOriginalName();
-	                $path = '/files/'.time();
-	                $file->move(public_path().$path, $name);
+	                $path = storage_png_path().'/files/'.time();
+	                $file->move($path, $name);
+	                $csv->filepng = $path.'/'.$name;
 
 			    	$profile = ProfileModel::where('id', $req->profile_id)->firstOrFail();
-			    	$mockup = generate_png_mockup($path.'/'.$name, $profile);
+			    	$mockup = generate_png_mockup($csv->filepng, $profile);
 	    			$csv->mockup = json_encode($mockup);
-	    			// dd($csv->mockup);
 	    			$csv->profile_id = $req->profile_id;
 			    	$csv->save();
 		         }
@@ -161,30 +160,23 @@ class CSVController extends Controller
 
 
     		if($req->get('genmkcsv')){
-		        if($req->hasfile('file_png'))
-		         {
-		            $file = $req->file('file_png');
-	                $name = $file->getClientOriginalName();
-	                $path = '/files/'.time();
-	                $file->move(public_path().$path, $name);
-
-			    	$profile = ProfileModel::where('id', $req->profile_id)->firstOrFail();
-			    	$mockup = generate_png_mockup($path.'/'.$name, $profile);
+		    	$profile = ProfileModel::where('id', $req->profile_id)->firstOrFail();
+		    	if($req->profile_id != $csv->profile_id){
+			    	$mockup = generate_png_mockup($csv->filepng, $profile);
 	    			$csv->mockup = json_encode($mockup);
+		    	}
 
-	    			if(intval($req->marketplace)==2){
-	    				$export = WishCSVExport();
-	    			}else if(intval($req->marketplace)==1){
-	    				$export = new EbayCSVExport();
-	    			}else{
-	    				$export = new AmazonCSVExport();
-	    			}
-					$export->set_profile($profile);
-					$export->set_csvdata($csv);
-					$date = date("Y_m_d_H_i");
-					return Excel::download($export, 'amazon_clothing_'.$date.'.tsv');
-	    			// dd($csv->mockup);
-		         }
+    			if(intval($req->marketplace)==2){
+    				$export = WishCSVExport();
+    			}else if(intval($req->marketplace)==1){
+    				$export = new EbayCSVExport();
+    			}else{
+    				$export = new AmazonCSVExport();
+    			}
+				$export->set_profile($profile);
+				$export->set_csvdata($csv);
+				$date = date("Y_m_d_H_i");
+				return Excel::download($export, str_slug($profile->name, "_").'_'.$date.'.tsv');
     		}
 
 

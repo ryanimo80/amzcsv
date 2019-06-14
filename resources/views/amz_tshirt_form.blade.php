@@ -82,7 +82,7 @@
 </article>
 <div class="columns">
 	<div class="column is-one-fifth has-background-black has-text-white has-text-centered	">
-		<img src="<?php echo url($file) ?>" width=216/><br/>
+		<img src="data:image/png;base64, <?php echo base64_encode(file_get_contents(storage_png_path($file))) ?>" width=216/><br/>
 	</div>
 	<div class="column">
 		

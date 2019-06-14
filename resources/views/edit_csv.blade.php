@@ -81,6 +81,20 @@
 	</div>
 	<div class="column">
 
+<div class="columns">
+	<div class="column has-background-grey-light">
+		@if(empty($csv->filepng) || !file_exists($csv->filepng))
+			<img src="/files/not-found.png"/>
+		@else
+			<img src="data:image/png;base64, {{ base64_encode(file_get_contents($csv->filepng)) }}"/>
+		@endif
+	</div>
+	<div class="column">
+		
+	</div>
+</div>
+
+
 		{{ Form::open(array('url'=>url()->current(), 'enctype'=>"multipart/form-data")) }}
 
 <label class="label">Upload a PNG:</label>
@@ -107,7 +121,7 @@
 
 <div class="field">	
 	<div class="control">
-		<input type="submit" value="Generate Mockup" name="updatemk" class="button is-primary"/>
+		<input type="submit" value="Update Artwork" name="updatemk" class="button is-primary"/>
 	</div>
 </div>
 
@@ -120,7 +134,7 @@
 
 <div class="field">	
 	<div class="control">
-		<input type="submit" value="Generate Mockup & Export CSV" name="genmkcsv" class="button is-primary"/>
+		<input type="submit" value="Export Profile" name="genmkcsv" class="button is-primary"/>
 	</div>
 </div>
 

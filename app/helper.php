@@ -7,11 +7,11 @@ include_once('minify_helper.php');
 function clothing_config($type='')
 {
 	if($type!=''){
-		$product = \Config::get('product.'.$type);
+		$product = \Config::get('amzcsv.product.'.$type);
 		return $product;
 	}
 // 
-	return \Config::get('product');
+	return \Config::get('amzcsv.product');
 }
 
 function  get_print_sizes($location='front')
@@ -67,7 +67,7 @@ if(!function_exists('gen_mockup_front_side'))
 	    }
 
 	    $img->save($save_mockup);
-	    return env('ONE_DRIVE_URL').'/JPG/mockup/'.$color.'/'.$time.'.jpg';
+	    return \Config::get('amzcsv.mockup.public_url').'/JPG/mockup/'.$color.'/'.$time.'.jpg';
 	}	
 }
 
@@ -103,7 +103,7 @@ if(!function_exists('gen_mockup_back_side'))
 	    }
 
 	    $img->save($save_mockup);
-	    return env('ONE_DRIVE_URL').'/JPG/mockup/'.$color.'/'.$time.'.jpg';
+	    return \Config::get('amzcsv.mockup.public_url').'/JPG/mockup/'.$color.'/'.$time.'.jpg';
 	}	
 }
 
@@ -317,4 +317,14 @@ function get_size_chart($type='')
 	# code...
 	// dd(clothing_config($type)['size_chart']);
 	return optional(clothing_config($type))['size_chart'];
+}
+
+function storage_png_path($file="")
+{
+	if(file_exists($file))
+		return $file;
+	$folder_name = storage_path().'/artwork/';
+	if(!empty($file))
+		return $folder_name.'/'.$file; 
+	return $folder_name;
 }

@@ -224,7 +224,7 @@ class EbayCSVExport implements FromCollection, WithHeadings
             }else{
                 $csvdatas = CSVDataModel::where('is_exported', 0)->get();
             }  
-            return $csvdata;          
+            return $csvdatas;          
         }
         $csvdatas = [$this->export_by_csvdata];
         return $csvdatas;
