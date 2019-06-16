@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"csv",
+				"csvData"
+			],
+			[
+				"prof",
+				"profile_list"
+			],
+			[
+				"htmle",
+				"htmlspecialchars_decode"
+			],
+			[
+				"htmlen",
+				"html_entity_decode"
+			],
+			[
+				"html_",
+				"htmlspecialchars_decode"
+			],
+			[
+				"DB",
+				"DB::select\tRun a select statement against the database."
+			],
+			[
+				"keywo",
+				"keyword_list"
+			],
+			[
+				"base64_",
+				"base64_encode"
+			],
+			[
 				"Amazo",
 				"AmazonCSVExport"
 			],
@@ -58,10 +90,6 @@
 			[
 				"file",
 				"filepng"
-			],
-			[
-				"keywo",
-				"keyword_2"
 			],
 			[
 				"ke",
@@ -122,10 +150,6 @@
 			[
 				"CSVda",
 				"CSVDataModel"
-			],
-			[
-				"csv",
-				"csv_row"
 			],
 			[
 				"selec",
@@ -230,10 +254,6 @@
 			[
 				"print_",
 				"print_location"
-			],
-			[
-				"prof",
-				"profile_id"
 			],
 			[
 				"message",
@@ -447,7 +467,16 @@
 			"file": "app/Http/Controllers/CSVController.php",
 			"settings":
 			{
-				"buffer_size": 10534,
+				"buffer_size": 11773,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/KeywordController.php",
+			"settings":
+			{
+				"buffer_size": 4650,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -456,51 +485,25 @@
 			"file": "app/Http/Controllers/AmazonTShirtController.php",
 			"settings":
 			{
-				"buffer_size": 6729,
+				"buffer_size": 6841,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "routes/web.php",
+			"file": "resources/views/exportcsv.blade.php",
 			"settings":
 			{
-				"buffer_size": 2881,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/helper.php",
-			"settings":
-			{
-				"buffer_size": 7828,
+				"buffer_size": 3291,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "resources/views/edit_csv.blade.php",
-			"settings":
-			{
-				"buffer_size": 5579,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/Exports/EbayCSVExport.php",
-			"settings":
-			{
-				"buffer_size": 18812,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "app/Exports/AmazonCSVExport.php",
 			"settings":
 			{
-				"buffer_size": 11571,
+				"buffer_size": 11572,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -509,7 +512,7 @@
 			"file": "resources/views/amz_tshirt_form.blade.php",
 			"settings":
 			{
-				"buffer_size": 12713,
+				"buffer_size": 12783,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -554,19 +557,26 @@
 	[
 		"/D/Project/Web/www/amzcsv",
 		"/D/Project/Web/www/amzcsv/app",
-		"/D/Project/Web/www/amzcsv/app/Console",
-		"/D/Project/Web/www/amzcsv/app/Console/Commands",
-		"/D/Project/Web/www/amzcsv/app/Exports",
 		"/D/Project/Web/www/amzcsv/app/Http",
 		"/D/Project/Web/www/amzcsv/app/Http/Controllers",
 		"/D/Project/Web/www/amzcsv/app/Rules",
-		"/D/Project/Web/www/amzcsv/config",
-		"/D/Project/Web/www/amzcsv/routes",
+		"/D/Project/Web/www/amzcsv/resources",
+		"/D/Project/Web/www/amzcsv/resources/views",
 		"/D/Project/Web/www/amzcsv/storage",
-		"/D/Project/Web/www/amzcsv/storage/app"
+		"/D/Project/Web/www/amzcsv/storage/artwork",
+		"/D/Project/Web/www/amzcsv/storage/artwork/files"
 	],
 	"file_history":
 	[
+		"/D/Project/Web/www/amzcsv/config/amzcsv.php",
+		"/D/Project/Web/www/amzcsv/app/helper.php",
+		"/D/Project/Web/www/amzcsv/resources/views/amz_profile_form.blade.php",
+		"/D/Project/Web/www/amzcsv/resources/views/edit_csv.blade.php",
+		"/D/Project/Web/www/amzcsv/.gitignore",
+		"/D/Project/Web/www/amzcsv/config/filesystems.php",
+		"/D/Project/Web/www/amzcsv/app/Exports/EbayCSVExport.php",
+		"/D/Project/Web/www/amzcsv/.env",
+		"/D/Project/Web/www/amzcsv/database/migrations/2019_06_14_074244_add_filepng_csvdata.php",
 		"/D/Project/Web/www/amzcsv/app/Http/Controllers/KeywordController.php",
 		"/D/Project/Web/www/amzcsv/app/Http/Controllers/AmazonTShirtController.php",
 		"/D/Project/Web/www/amzcsv/config/product.php",
@@ -581,9 +591,7 @@
 		"/D/Project/Web/laradock/php-fpm/php7.3.ini",
 		"/D/Project/Web/www/amzcsv/storage/logs/laravel.log",
 		"/D/Project/Web/www/amzcsv/storage/logs/laravel-2019-06-12.log",
-		"/D/Project/Web/www/amzcsv/.env",
 		"/D/Project/Web/www/amzcsv/app/Http/Controllers/ProfileMockupController.php",
-		"/D/Project/Web/www/amzcsv/resources/views/edit_csv.blade.php",
 		"/D/Project/Web/www/amzcsv/routes/web.php",
 		"/D/Project/Web/www/amzcsv/info.php",
 		"/D/Project/Web/www/amzcsv/resources/views/amz_tshirt_form.blade.php",
@@ -593,7 +601,6 @@
 		"/D/Project/Web/www/amzcsv/app/Http/Controllers/CSVController.php",
 		"/D/Project/Web/www/amzcsv/app/Exports/CSVUploadFacebookExport.php",
 		"/D/Project/Web/www/amzcsv/storage/logs/laravel-2019-06-10.log",
-		"/D/Project/Web/www/amzcsv/app/helper.php",
 		"/D/Project/Web/www/amzcsv/storage/app/keywordbanned.txt",
 		"/D/Project/Web/www/amzcsv/resources/views/exportcsv.blade.php",
 		"/C/Users/admin/.ssh/id_rsa.pub",
@@ -688,13 +695,7 @@
 		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/User/laravel-input.sublime-snippet",
 		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/User/laravel-column.sublime-snippet",
 		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/User/laravel-column.sublime-snippet.xml",
-		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/snippets/Input/Input-all.sublime-snippet",
-		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/snippets/Request/Request-all.sublime-snippet",
-		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/User/laravel-bulma.sublime-snippet",
-		"/D/Project/Web/database/migrations/2019_05_14_084137_create_csvdata_table.php",
-		"/D/Project/Web/app/Http/Controllers/UserController.php",
-		"/D/Project/Web/database/migrations/2019_05_10_131453_keyword.php",
-		"/D/Project/Web/app/UserModel.php"
+		"/C/Users/admin/AppData/Roaming/Sublime Text 3/Packages/snippets/Input/Input-all.sublime-snippet"
 	],
 	"find":
 	{
@@ -714,6 +715,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"filter",
+			"p_name",
+			", ",
+			"charcoal",
+			"base64",
+			"files",
 			"ProfileModel",
 			"nginx",
 			"conf.d",
@@ -835,13 +842,7 @@
 			"v-on:click",
 			"Vue",
 			"prevent",
-			"submit",
-			"prevent",
-			"save_data",
-			"response()",
-			"json",
-			"method(",
-			"teezily"
+			"submit"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -849,6 +850,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"\n",
 			"$keyword_2",
 			"$keyword_1",
 			"$keyword_0",
@@ -868,7 +870,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -877,15 +879,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10534,
+						"buffer_size": 11773,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1843,
-								1843
+								8799,
+								8812
 							]
 						],
 						"settings":
@@ -893,145 +895,27 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 178.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/Http/Controllers/AmazonTShirtController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6729,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								267,
-								267
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 5064.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "routes/web.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 2881,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1899,
-								1924
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 432.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/helper.php",
+					"buffer": 1,
+					"file": "app/Http/Controllers/KeywordController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7828,
+						"buffer_size": 4650,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4985,
-								4985
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2346.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "resources/views/edit_csv.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5579,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4112,
-								4123
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1566.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/Exports/EbayCSVExport.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 18812,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2604,
-								2604
+								253,
+								253
 							]
 						],
 						"settings":
@@ -1039,27 +923,27 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 902.0,
+						"translation.y": 1350.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "app/Exports/AmazonCSVExport.php",
+					"buffer": 2,
+					"file": "app/Http/Controllers/AmazonTShirtController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11571,
+						"buffer_size": 6841,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10568,
-								10568
+								5754,
+								5759
 							]
 						],
 						"settings":
@@ -1069,27 +953,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4110.0,
+						"translation.y": 468.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "resources/views/amz_tshirt_form.blade.php",
+					"buffer": 3,
+					"file": "resources/views/exportcsv.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12713,
+						"buffer_size": 3291,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11421,
-								11421
+								694,
+								694
 							]
 						],
 						"settings":
@@ -1098,10 +982,69 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6974.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/Exports/AmazonCSVExport.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11572,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3114,
+								3114
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 512.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "resources/views/amz_tshirt_form.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12783,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8851,
+								8851
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 5604.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -1184,7 +1127,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 245.0,
+	"side_bar_width": 376.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -155,6 +155,12 @@ class CSVController extends Controller
 	    			$csv->mockup = json_encode($mockup);
 	    			$csv->profile_id = $req->profile_id;
 			    	$csv->save();
+		         }else if(file_exists($csv->filepng)){
+			    	$profile = ProfileModel::where('id', $req->profile_id)->firstOrFail();
+			    	$mockup = generate_png_mockup($csv->filepng, $profile);
+	    			$csv->mockup = json_encode($mockup);
+	    			$csv->profile_id = $req->profile_id;
+			    	$csv->save();	         	
 		         }
     		}
 
@@ -224,13 +230,17 @@ class CSVController extends Controller
 		$marketplace = array('Amazon', 'eBay', 'Wish');
 		$date = date("Y_m_d_H_i");
 		$filter = array('New', 'Exported', 'All');
-		$number_per_page = array(20, 50, 100, 200);//dd($req->number_per_page);
+		$number_per_page = array(20, 50, 100, 200);
+		// dd($req->number_per_page);
+
 		if($req->get('per_page')){
 			$item_per_page = $req->get('per_page');
 		}else{
 			$item_per_page = !isset($req->number_per_page)?$number_per_page[3]:$number_per_page[$req->get('number_per_page')];
 		}
 		$sort_by = array('Created - Desc', 'Created - Asc');
+		// $item_per_page = 20;
+		$profile_list = ProfileModel::all()->pluck('name', 'id');
 
 		if($req->isMethod('POST')){
 			if($req->export){
@@ -251,33 +261,58 @@ class CSVController extends Controller
 				}
 			}
 
-// \DB::enableQueryLog();
-			$csvData = CSVDataModel::where(function($query) use($req){
+
+		}
+
+		// \DB::enableQueryLog();
+		$csvData = CSVDataModel::leftJoin('profile as p', 'p.id', '=', 'csvdata.profile_id')
+					->where(function($query) use($req){
 						$keyword = str_replace('*','%', $req->keyword);
-							$query->orWhere('item_name','LIKE', '%'.$keyword.'%');
-							$query->orWhere('item_sku','LIKE', '%'.$keyword.'%');
-						})
-						->where('is_exported', intval($req->filter)<2?'=':'>=', intval($req->filter)!=2?$req->filter:0)
-						->orderBy('created_at', intval($req->sort_by)==0?'desc':'asc')
-						->paginate($item_per_page);
-// \Log::debug(\DB::getQueryLog());
+						$query->orWhere('csvdata.item_name','LIKE', '%'.$keyword.'%');
+						$query->orWhere('csvdata.item_sku','LIKE', '%'.$keyword.'%');
+					})
+					->select(['csvdata.*','p.name as p_name'])
+					->orderBy('csvdata.created_at', intval($req->sort_by)==0?'desc':'asc');
+					// ->where('csvdata.is_exported', intval($req->filter)<2?'=':'>=', intval($req->filter)!=2?$req->filter:0)
+		
+		if(isset($req->filter)){
+			$csvData = $csvData->where('p.id','=', $req->filter);
+		}						
+		// $csvData = $csvData->select(['csvdata.*','p.name as p_name']);
+		// $csvData = $csvData->orderBy('csvdata.created_at', intval($req->sort_by)==0?'desc':'asc');
+		$csvData = $csvData->paginate($item_per_page);
 
-		}
+		// dd(\DB::getQueryLog());
 
-		if(!isset($csvData)){
-			$csvData = CSVDataModel::where('id','>',0)
-						->orderBy('created_at', 'desc')
-						->paginate($item_per_page);
-		}
+		// if(!isset($csvData)){
+		// 	// $csvData = CSVDataModel::where('id','>',0)
+		// 	// 			->orderBy('created_at', 'desc')
+		// 	// 			->paginate($item_per_page);
+		// 	$csvData = CSVDataModel::leftJoin('profile as p', 'p.id', '=', 'csvdata.profile_id')
+		// 				->select(['csvdata.*','p.name as p_name'])
+		// 				->where('csvdata.id','>',0)
+		// 				->orderBy('csvdata.created_at', 'desc')
+		// 				->paginate($item_per_page);
+		// }
 
-		$csvData->appends(['search' => $req->keyword]);
+		// \DB::enableQueryLog();
+		// $csvData = CSVDataModel::leftJoin('profile as p', 'p.id', '=', 'csvdata.profile_id')
+		// 			->select(['csvdata.*','p.name as p_name'])
+		// 			->orderBy('csvdata.created_at', 'desc')
+		// 			->paginate($item_per_page);
+		// dd(\DB::getQueryLog());
+
+
+		$csvData->appends(['keyword' => $req->keyword]);
 		$csvData->appends(['per_page' => $item_per_page]);
+		$csvData->appends(['filter' => $req->filter]);
+
 		return view('exportcsv',[
 			'title' => 'Export CSV',
 			'message_type'=>0,
 			'marketplace' => $marketplace,
 			'csvdata' => $csvData,
-			'filter' => $filter,
+			'filter' => $profile_list,
 			'number_per_page'=>$number_per_page,
 			'sort_by' => $sort_by
 		]);

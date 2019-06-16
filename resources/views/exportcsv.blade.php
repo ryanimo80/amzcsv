@@ -13,13 +13,13 @@
 					</div>
 				</div>
 				<div class="control">
-					<label class="label">Filter</label>
+					<label class="label">Profile Filter</label>
 					<div class="select">
-						{{ Form::select('filter', $filter, isset(request()->filter)?request()->filter:2, ['placeholder'=>'Select filter'])  }}
+						{{ Form::select('filter', $filter, request()->filter, ['placeholder'=>'Select filter'])  }}
 					</div>
 				</div>	
 				<div class="control">
-					<label class="label">Filter</label>
+					<label class="label">Paging</label>
 					<div class="select">
 						{{ Form::select('number_per_page', $number_per_page, request()->get('number_per_page') )  }}
 					</div>
@@ -55,6 +55,7 @@
 			<td><input type="checkbox" @click="selectAll" v-model="allSelected" /></td>
 			<td>SKU</td>
 			<td>Title</td>
+			<td>Profile</td>
 			<td>Created at</td>
 		</tr>
 
@@ -67,7 +68,8 @@
 				</div>
 			</td>
 			<td><a :href="'/amz/edit/'+csv.id">@{{ csv.sku }}</a></td>
-			<td>@{{ csv.name }}</td>
+			<td>@{{ csv.title }}</td>
+			<td>@{{ csv.p_name }}</td>
 			<td>@{{ csv.created_at }}</td>
 		</tr>
 	</table>
@@ -85,7 +87,7 @@
 		data:{
 			csvdata: [
 			@foreach ($csvdata as $csv_row)
-				{'id':'{{$csv_row->id}}', 'sku':'{{$csv_row->item_sku}}', 'name':'{{$csv_row->item_name}}', 'created_at':'{{$csv_row->created_at}}'},
+				{'id':'{{$csv_row->id}}', 'sku':'{{$csv_row->item_sku}}', 'title':'{{$csv_row->item_name}}', 'p_name':'{{$csv_row->p_name}}', 'created_at':'{{$csv_row->created_at}}'},
 			@endforeach
 			],
         selected: [],
