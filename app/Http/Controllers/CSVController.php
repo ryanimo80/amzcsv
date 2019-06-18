@@ -108,7 +108,7 @@ class CSVController extends Controller
 	    	* Generate mockup
 	    	*
 	    	*/
-	    	$mockup = generate_png_mockup($req->filepng, $profile);
+	    	$mockup = generate_png_mockup($req->filepng, $profile, str_slug($csvdata->item_name));
 
 	    	$csvdata->mockup = json_encode($mockup);
 
@@ -151,13 +151,13 @@ class CSVController extends Controller
 	                $csv->filepng = $path.'/'.$name;
 
 			    	$profile = ProfileModel::where('id', $req->profile_id)->firstOrFail();
-			    	$mockup = generate_png_mockup($csv->filepng, $profile);
+			    	$mockup = generate_png_mockup($csv->filepng, $profile, str_slug($csv->item_name));
 	    			$csv->mockup = json_encode($mockup);
 	    			$csv->profile_id = $req->profile_id;
 			    	$csv->save();
 		         }else if(file_exists($csv->filepng)){
 			    	$profile = ProfileModel::where('id', $req->profile_id)->firstOrFail();
-			    	$mockup = generate_png_mockup($csv->filepng, $profile);
+			    	$mockup = generate_png_mockup($csv->filepng, $profile, str_slug($csv->item_name));
 	    			$csv->mockup = json_encode($mockup);
 	    			$csv->profile_id = $req->profile_id;
 			    	$csv->save();	         	
@@ -168,7 +168,7 @@ class CSVController extends Controller
     		if($req->get('genmkcsv')){
 		    	$profile = ProfileModel::where('id', $req->profile_id)->firstOrFail();
 		    	if($req->profile_id != $csv->profile_id){
-			    	$mockup = generate_png_mockup($csv->filepng, $profile);
+			    	$mockup = generate_png_mockup($csv->filepng, $profile, str_slug($csv->item_name));
 	    			$csv->mockup = json_encode($mockup);
 		    	}
 

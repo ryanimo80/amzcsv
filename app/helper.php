@@ -37,9 +37,9 @@ function is_mug_type($type)
 
 if(!function_exists('gen_mockup_front_side'))
 {
-	function gen_mockup_front_side($type, $design_file, $color='')
+	function gen_mockup_front_side($type, $design_file, $color='', $title='')
 	{
-		$time = time();
+		$time = $title.'-'.time();
 		$print_location = get_print_sizes('front');
 		$mockup_file = 'front-'.$type.'.jpg';
 
@@ -73,9 +73,9 @@ if(!function_exists('gen_mockup_front_side'))
 
 if(!function_exists('gen_mockup_back_side'))
 {
-	function gen_mockup_back_side($type, $design_file, $color='')
+	function gen_mockup_back_side($type, $design_file, $color='', $title='')
 	{
-		$time = time();
+		$time = $title.'-'.time();
 		$print_location = get_print_sizes('back');		
 		$mockup_file = 'back-'.$type.'.jpg';
 		
@@ -109,23 +109,23 @@ if(!function_exists('gen_mockup_back_side'))
 
 
 if(!function_exists('gen_mockup')){
-	function gen_mockup($type, $side, $design_file, $color)
+	function gen_mockup($type, $side, $design_file, $color, $title)
 	{
 		if(is_mug_type($type)){
-			$filepath1 = gen_mockup_front_side($type, $design_file, $color);
-			$filepath2 = gen_mockup_back_side($type, $design_file, $color);
+			$filepath1 = gen_mockup_front_side($type, $design_file, $color, $title);
+			$filepath2 = gen_mockup_back_side($type, $design_file, $color, $title);
 			return $filepath1.'|'.$filepath2;// mockup mat truoc|mockup mat sau
 		}else{
 			if($side==0){
-				return gen_mockup_front_side($type, $design_file, $color);
+				return gen_mockup_front_side($type, $design_file, $color, $title);
 			}else{
-				return gen_mockup_back_side($type, $design_file, $color);
+				return gen_mockup_back_side($type, $design_file, $color, $title);
 			}			
 		}
 	}
 }
 
-function generate_png_mockup($file_png, $profile)
+function generate_png_mockup($file_png, $profile, $title)
 {
 	/**
 	* Generate mockup
@@ -140,7 +140,7 @@ function generate_png_mockup($file_png, $profile)
 		foreach ($color as $value) {
 			# code...
 			$side = json_decode($profile->print_location);
-	    	$mockup[$type][$value] = gen_mockup($type, $side->$type, $file_png, $value);
+	    	$mockup[$type][$value] = gen_mockup($type, $side->$type, $file_png, $value, $title);
 		}
 	}
 	return $mockup;
