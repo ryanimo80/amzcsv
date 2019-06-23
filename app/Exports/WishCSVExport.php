@@ -12,6 +12,8 @@ class WishCSVExport implements FromCollection, WithHeadings
 {
 	protected $market_place_config = array();
 	protected $selected_item = array();
+	protected $brand_name = array();
+
     public function __construct($selected_item = array())
     {
     	$this->selected_item = $selected_item;
@@ -19,7 +21,6 @@ class WishCSVExport implements FromCollection, WithHeadings
         	'shipping'=>6.9,
         	'manufacturer_location'=>'US',//US
         	'handle_time'=>"5-10",//5 days handling time
-        	'brand'=>brand_name(),
         	'img_made_in'=>'https://images-na.ssl-images-amazon.com/images/I/71NAb%2BddamL._SX679._SX._UX._SY._UY_.jpg',
         	'img_handle_time'=>'https://images-na.ssl-images-amazon.com/images/I/71BhzMr-zgL._UL1500_.jpg',
         );
@@ -102,7 +103,7 @@ class WishCSVExport implements FromCollection, WithHeadings
 			# code...
 			$child_sku = $value->item_sku.'-'.color_map($color).'-'.$type['short_code'].$ts_key;
 	    	$data_variant[] = array(
-						$parent_sku.'-'.$type_config['short_code'],$child_sku,"",$this->market_place_config['brand'],ucfirst($value->item_name)." ".$type_config['title']." ".$ts_key,"","","",ucfirst($color),$ts_key,999,"unisex",$description,$price,$price/2,$this->market_place_config['shipping'],$this->market_place_config['handle_time'],"",$type_mockup,$this->market_place_config['img_made_in'].'|'.$this->market_place_config['img_handle_time'],"","","","",$this->market_place_config['manufacturer_location'],"","","","",""
+						$parent_sku.'-'.$type_config['short_code'],$child_sku,"",$this->get_brand(),ucfirst($value->item_name)." ".$type_config['title']." ".$ts_key,"","","",ucfirst($color),$ts_key,999,"unisex",$description,$price,$price/2,$this->market_place_config['shipping'],$this->market_place_config['handle_time'],"",$type_mockup,$this->market_place_config['img_made_in'].'|'.$this->market_place_config['img_handle_time'],"","","","",$this->market_place_config['manufacturer_location'],"","","","",""
 					);
 			if($i>=count($type_sizes)-4){
 				$price++;
@@ -110,5 +111,17 @@ class WishCSVExport implements FromCollection, WithHeadings
 			$i++;
 		}
 		return $data_variant;
+    }
+
+    public function set_brand($value='')
+    {
+    	# code...
+    	$this->brand_name = $value;
+    }
+
+    public function get_brand()
+    {
+    	# code...
+    	return $this->brand_name;
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\KeywordModel;
 use App\ProfileModel;
 use App\CSVDataModel;
+use App\BrandManagerModel;
 use Excel;
 use App\Exports\AmazonCSVExport;
 use App\Exports\EbayCSVExport;
@@ -166,7 +167,21 @@ class CSVController extends Controller
 
 
     		if($req->get('genmkcsv')){
+				if(!isset($req->select_brand)){
+					$brand_list = BrandManagerModel::all()->pluck('brand_name','brand_name');
+					return view('export', [
+						'title' => 'Export CSV for a brand',
+						'sub_title' => '',
+						'message_type' => 0,
+						'selected_ids' => $req->id,
+						'profile_id' => $req->profile_id,
+						'brand_list' => $brand_list,
+						'action_name' => 'genmkcsv'
+					]);
+				}
+
 		    	$profile = ProfileModel::where('id', $req->profile_id)->firstOrFail();
+
 		    	if($req->profile_id != $csv->profile_id){
 			    	$mockup = generate_png_mockup($csv->filepng, $profile, str_slug($csv->item_name));
 	    			$csv->mockup = json_encode($mockup);
@@ -174,10 +189,12 @@ class CSVController extends Controller
 
     			if(intval($req->marketplace)==2){
     				$export = WishCSVExport();
+    				$export->set_brand($req->select_brand);
     			}else if(intval($req->marketplace)==1){
     				$export = new EbayCSVExport();
     			}else{
     				$export = new AmazonCSVExport();
+    				$export->set_brand($req->select_brand);
     			}
 				$export->set_profile($profile);
 				$export->set_csvdata($csv);
@@ -225,7 +242,7 @@ class CSVController extends Controller
     }
 
 
-	public function exportCSV(Request $req)
+	public function listingCSV(Request $req)
 	{
 		$marketplace = array('Amazon', 'eBay', 'Wish');
 		$date = date("Y_m_d_H_i");
@@ -249,8 +266,22 @@ class CSVController extends Controller
 				if($req->selectedIDs!=null)
 					$selectedIDs = explode(',', $req->selectedIDs);
 
+				if(!isset($req->select_brand)){
+					$brand_list = BrandManagerModel::all()->pluck('brand_name','brand_name');
+					return view('export', [
+						'title' => 'Export CSV for a brand',
+						'sub_title' => '',
+						'message_type' => 0,
+						'selectedIDs' => $req->selectedIDs,
+						'brand_list' => $brand_list,
+						'action_name' => 'export'
+					]);
+				}
+
+
 				if($req->marketplace==0){//amazon
 					$export = new AmazonCSVExport($selectedIDs);
+					$export->set_brand($req->select_brand);
 					return Excel::download($export, 'amazon_clothing_'.$date.'.tsv');
 				}else if($req->marketplace==1){//ebay
 					$export = new EBayCSVExport($selectedIDs);
@@ -307,7 +338,7 @@ class CSVController extends Controller
 		$csvData->appends(['per_page' => $item_per_page]);
 		$csvData->appends(['filter' => $req->filter]);
 
-		return view('exportcsv',[
+		return view('listing',[
 			'title' => 'Export CSV',
 			'message_type'=>0,
 			'marketplace' => $marketplace,

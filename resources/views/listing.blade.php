@@ -3,7 +3,7 @@
 
 <div class="container">
 <div class="box">
-{{ Form::open(array('url'=>'/amz/export')) }}
+{{ Form::open(array('url'=>route('listing'))) }}
 <div id="tblApp">
 			<div class="field is-grouped">	
 				<div class="control">

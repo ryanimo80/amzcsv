@@ -19,7 +19,7 @@ class BulkImportCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'import:bulk {--profile=PROFILE} {--keyword=KEYWORD} {--mpath=} {path}';
+    protected $signature = 'import:bulk {--profile=PROFILE_ID} {--keyword=KEYWORD_ID} {--mpath=} {path}';
 
     /**
      * The console command description.
@@ -51,6 +51,8 @@ class BulkImportCommand extends Command
         //
         $mpath = $this->option('mpath');
 
+// print_r( config('database.connections.mysql'));
+
         $path = $this->argument('path');
         $path = str_replace("\\", "/", trim($path));
         $path = str_replace("\"", "", $path);
@@ -74,11 +76,12 @@ class BulkImportCommand extends Command
                 echo $this->info("Imported ".basename($value)." successful! CSV ID: ". $csvdata->id);
                 $this->imported_marker($value);
                 sleep($this->delay_time);
-            }else{
+           }else{
                 dd("Error: $value");             
             }
         }
-    }
+        rename($path, basename($path).'/T'.$mpath);
+ }
 
     protected function imported_marker($value='')
     {
@@ -117,6 +120,11 @@ class BulkImportCommand extends Command
         $csvdata->searchterm_4 = replace_keyword($keyword->searchterm_4, $keyword_0, $keyword_1, $keyword_2);
         $csvdata->searchterm_5 = replace_keyword($keyword->searchterm_5, $keyword_0, $keyword_1, $keyword_2);
         $csvdata->description = replace_keyword($keyword->description, $keyword_0, $keyword_1, $keyword_2);
+        
+        $path = storage_png_path().'/files/'.time();
+        mkdir($path);
+        copy($filepng, $path.'/'.basename($filepng));
+        $csvdata->filepng = $path.'/'.basename($filepng);
 
         $validator = Validator::make($csvdata->toArray(), [
             'item_name' => [new ValidBannedKeyword],
@@ -137,7 +145,7 @@ class BulkImportCommand extends Command
             dd($filepng." -> ".$message);   
         }
 
-        $mockup = generate_png_mockup($filepng, $profile);
+        $mockup = generate_png_mockup($filepng, $profile, $title);
         $csvdata->mockup = json_encode($mockup);
 
         $csvdata->save();//save to database        

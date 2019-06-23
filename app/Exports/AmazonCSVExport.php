@@ -12,6 +12,7 @@ class AmazonCSVExport implements FromCollection, WithHeadings
     protected $selected_item = array();
     protected $export_by_profile = null;
     protected $export_by_csvdata = null;
+    protected $brand_name = '';
 
     public function __construct($selected_item = array())
     {
@@ -49,7 +50,7 @@ class AmazonCSVExport implements FromCollection, WithHeadings
 
 			$data_parent = array(
 				array(//parent
-					'',$value->item_sku,$value->brand_name,$value->item_name,
+					'',$value->item_sku,$this->brand_name,$value->item_name,
 					'','GTIN','','','','','','','','','','','','','','','','','','Unisex',
 					$price,'999','Migrated Template',
 					$mockup_url,// 27 mockup 1
@@ -151,7 +152,7 @@ class AmazonCSVExport implements FromCollection, WithHeadings
     		# code...
 			$child_sku = $value->item_sku.'-'.color_map($color).'-'.$size_map[0];
 			$data[] = array(//child
-							feed_type($type),$child_sku,$value->brand_name,
+							feed_type($type),$child_sku,$this->brand_name,
 
                             html_entity_decode($value->item_name).' '.type_map($type).(is_mug_type($type)?'':' '.$size_name),
 
@@ -267,5 +268,17 @@ class AmazonCSVExport implements FromCollection, WithHeadings
         }
         $csvdatas = [$this->export_by_csvdata];
         return $csvdatas;
+    }
+
+    public function set_brand($value='')
+    {
+        # code...
+        $this->brand_name = $value;
+    }
+
+    public function get_brand()
+    {
+        # code...
+        return $this->brand_name;
     }
 }

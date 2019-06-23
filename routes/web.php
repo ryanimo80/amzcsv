@@ -51,13 +51,17 @@ Route::get('/amz/profile/delete/{id}', 'ProfileMockupController@profile_delete')
 /**
  * CSV Controller
  */
-Route::get('/amz/export', 'CSVController@exportCSV');
-Route::post('/amz/export', 'CSVController@exportCSV');
+Route::get('/amz/listing', 'CSVController@listingCSV')->name('listing');
+Route::post('/amz/listing', 'CSVController@listingCSV');
 Route::get('/amz/clearqueue/','CSVController@clearqueue');
 Route::post('/amz/savecsvrow/', 'CSVController@saveCSVRow');
 Route::get('/amz/edit/{id}', 'CSVController@edit');
 Route::post('/amz/edit/{id}', 'CSVController@edit');
 
+Route::get('/amz/brandmanager', 'BrandManagerController@index')->name('brand_manager_index');
+Route::post('/amz/brandmanager', 'BrandManagerController@store');
+Route::get('/amz/brandmanager/{id}', 'BrandManagerController@edit');
+Route::post('/amz/brandmanager/{id}/update', 'BrandManagerController@update');
 
 Route::get('/amz/fix', 'AmazonTShirtController@fix_db_error');
 Route::post('/amz/uploads/', 'AmazonTShirtController@uploads');

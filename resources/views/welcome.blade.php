@@ -8,6 +8,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.7/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 <style type="text/css">
     .has-background-blue{
         background-color: blue;
@@ -71,6 +72,9 @@
         </a>
 
         <div class="navbar-dropdown">
+          <a class="navbar-item" href="/amz/listing">
+            Listing CSV
+          </a>
           <a class="navbar-item" href="/amz/">
             Upload PNGs
           </a>
@@ -80,8 +84,8 @@
           <a class="navbar-item" href="/amz/keyword">
             Create new keyword
           </a>
-          <a class="navbar-item" href="/amz/export">
-            Export CSV
+          <a class="navbar-item" href="/amz/brandmanager">
+            Brand Manager
           </a>
           <a class="navbar-item" href="/amz/clearqueue">
             Clear Queue
