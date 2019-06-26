@@ -80,7 +80,7 @@ class BulkImportCommand extends Command
                 dd("Error: $value");             
             }
         }
-        rename($path, basename($path).'/T'.$mpath);
+        rename($path, dirname($path).'/T'.$mpath);
  }
 
     protected function imported_marker($value='')

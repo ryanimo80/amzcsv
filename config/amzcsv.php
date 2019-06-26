@@ -62,7 +62,7 @@
             // mug 11oz & 15oz
             'mug11oz' => [
                 'title'=>'Mug 11 oz', 'name'=>'mug11oz', 'short_code'=>'M11', 'max_size'=>'11oz',
-                'color'=>['black','navy','charcoal','grey','royal', 'forest','red'],
+                'color'=>['black','white'],
                 'print_location' =>[
                     'front' => array(490, 350),
                     'back' => array(210, 350)
@@ -70,7 +70,7 @@
             ],      
             'mug15oz' => [
                 'title'=>'Mug 15 oz', 'name'=>'mug15oz', 'short_code'=>'M15', 'max_size'=>'15oz',
-                'color'=>['black','navy','charcoal','grey','royal', 'forest','red'],
+                'color'=>['black','white'],
                 'print_location' =>[
                     'front' => array(500, 350),
                     'back' => array(170, 350)

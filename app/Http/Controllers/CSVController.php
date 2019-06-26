@@ -199,7 +199,7 @@ class CSVController extends Controller
 				$export->set_profile($profile);
 				$export->set_csvdata($csv);
 				$date = date("Y_m_d_H_i");
-				return Excel::download($export, str_slug($profile->name, "_").'_'.$date.'.tsv');
+				return Excel::download($export, str_slug($req->select_brand, "_").'_'.$date.'.tsv');
     		}
 
 
@@ -226,7 +226,7 @@ class CSVController extends Controller
 
     		if($req->get('delete')){
 	    		$csv->delete();
-	    		return redirect('/amz/export');
+	    		return redirect()->route('listing');
     		}    		    		 		
     	}
 
@@ -282,13 +282,13 @@ class CSVController extends Controller
 				if($req->marketplace==0){//amazon
 					$export = new AmazonCSVExport($selectedIDs);
 					$export->set_brand($req->select_brand);
-					return Excel::download($export, 'amazon_clothing_'.$date.'.tsv');
+					return Excel::download($export, 'amazon_'.str_slug($req->select_brand, "_").$date.'.tsv');
 				}else if($req->marketplace==1){//ebay
 					$export = new EBayCSVExport($selectedIDs);
-					return Excel::download($export, 'ebay_clothing_'.$date.'.tsv');
+					return Excel::download($export, 'ebay_'.str_slug($req->select_brand, "_").$date.'.tsv');
 				}else if($req->marketplace==2){//ebay
 					$export = new WishCSVExport($selectedIDs);
-					return Excel::download($export, 'wish_clothing_'.$date.'.tsv');
+					return Excel::download($export, 'wish_'.str_slug($req->select_brand, "_").$date.'.tsv');
 				}
 			}
 

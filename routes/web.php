@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\Auth\LoginController;
 
 Route::get('/', function () {
     return redirect()->action('AmazonTShirtController@index');
@@ -28,6 +29,7 @@ Route::get('/test', function()
 	$name = substr($url, strrpos($url, '/') + 1);
 	Storage::put($name, $contents);
 });
+
 
 /**
  * Keyword Controller
@@ -77,3 +79,6 @@ Route::resource('amz', 'AmazonTShirtController');
 Route::get('/teezily/scan/', 'TeezilyController@scan');
 Route::post('/teezily/scan/', 'TeezilyController@scan');
 Route::post('/teezily/ajax_scan/', 'TeezilyController@ajax_scan');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

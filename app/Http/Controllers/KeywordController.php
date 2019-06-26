@@ -70,8 +70,6 @@ class KeywordController extends Controller
 		    	//return back()->withErrors($validator->errors());
 		    }
 
-
-
     		if($req->has('submit')){
 		    	$keyword->main_keyword = $req->main_keyword;
 		    	$keyword->bulletpoint_1 = ($req->bulletpoint_1);
