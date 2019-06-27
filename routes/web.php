@@ -82,3 +82,7 @@ Route::post('/teezily/ajax_scan/', 'TeezilyController@ajax_scan');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

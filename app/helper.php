@@ -58,6 +58,7 @@ if(!function_exists('gen_mockup_front_side'))
 		$blank_mockup = "/blank-mockup/$color/".$mockup_file;
 		$path = Storage::disk('onedrive')->getAdapter()->getPathPrefix();
 		$save_mockup = $path.'/mockup/'.$color.'/'.$time.'.jpg';
+
 	    $img = Image::make(Storage::disk('local')->get($blank_mockup));
 	    $artwork = Image::make($design)->resize($resize_design[0], $resize_design[1]);
 	    $img->insert($artwork, 'top-left', $print_location[$type][0], $print_location[$type][1]);

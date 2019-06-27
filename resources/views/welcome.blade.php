@@ -34,6 +34,9 @@
     .has-background-berry{
         background-color: #832251;
     }                             
+    li.disabled{
+      list-style:none;
+    }
 </style>    
 
     </head>
