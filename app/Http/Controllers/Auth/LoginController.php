@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -35,18 +37,47 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        // $this->middleware('guest')->except('logout');
     }
 
     public function login(Request $request)
     {
         # code...
-      $credentials = $request->only(['username', 'password']);
+        if($request->isMethod('POST')){
+            $credentials = [
+                'username' => $request->username,
+                'password' => $request->password
+            ];
 
-      if (!$token = auth()->attempt($credentials)) {
-        return response()->json(['error' => 'Unauthorized'], 401);
-      }
-      return response()->json(['login' => 'Ok'], 200);
+            if (auth()->attempt($credentials)) {
+                $token = auth()->user()->createToken('TutsForWeb')->accessToken;
+                $request->session()->put('user', $token);
+
+                return response()->json(['token' => $token], 200);
+            } else {
+                return response()->json(['error' => 'UnAuthorised'], 401);
+            }
+        }
+
+        if(request()->session()->has('user')){
+            $token = auth()->user()->createToken('TutsForWeb')->accessToken;            
+            return response()->json(['token' => $token], 200);
+        }
+        
+        return view('auth.login');
+
+    }
+
+    public function logout(Request $request)
+    {
+        # code...
+        $request->session()->flush();
+        // $token = $request->session()->get('user');
+        // dd($token);
+        // // $token->revoke();
+
+        // dd($request->session()->all());
+        // dd(auth()->user());
     }
 
 }

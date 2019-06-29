@@ -79,10 +79,8 @@ Route::resource('amz', 'AmazonTShirtController');
 Route::get('/teezily/scan/', 'TeezilyController@scan');
 Route::post('/teezily/scan/', 'TeezilyController@scan');
 Route::post('/teezily/ajax_scan/', 'TeezilyController@ajax_scan');
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'Auth\LoginController@login')->name('login');
+Route::post('/home', 'Auth\LoginController@login')->name('login');
+Route::get('/logoutx', 'Auth\LoginController@logout');

@@ -14,10 +14,16 @@ use Illuminate\Http\Request;
 */
 
 
-Route::post('register', 'AuthController@register');
-Route::post('login', 'AuthController@login');
+
+// Route::post('login', 'AuthController@login');
+Route::middleware('json.response')->group(function(){
+	Route::post('register', 'AuthController@register');
+	Route::post('login', 'AuthController@login');
+});
+
+// Route::middleware('json.response')->get('/logout', 'AuthController@logout')->name('logout');
 Route::middleware('auth:api')->group(function () {
+	Route::get('user', 'AuthController@index');
 	Route::put('update', 'AuthController@updatePassword');
-	Route::get('/user', 'AuthController@index');
-    Route::get('/logout', 'AuthController@logout')->name('logout');
+	Route::get('/logout', 'AuthController@logout')->name('logout');
 });

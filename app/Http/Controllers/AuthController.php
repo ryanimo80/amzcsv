@@ -12,7 +12,7 @@ class AuthController extends Controller
 	public function __construct()
 	{
 		# code...
-		// $this->middleware('auth:api')->except(['register','login']);		
+		$this->middleware('auth:api')->except(['register','login']);		
 	}
 
     public function register(Request $request)
@@ -34,17 +34,6 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        // $credentials = [
-        //     'username' => $request->username,
-        //     'password' => $request->password
-        // ];
-
-        // if (auth()->attempt($credentials)) {
-        //     $token = auth()->user()->createToken('TutsForWeb')->accessToken;
-        //     return response()->json(['token' => $token], 200);
-        // } else {
-        //     return response()->json(['error' => 'UnAuthorised'], 401);
-        // }
 
 	    $user = User::where('username', $request->username)->first();
 	    if ($user) {
