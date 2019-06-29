@@ -1,4 +1,4 @@
 <?php
-phpinfo();
+phpinfo(); //Show php information
 
 //admin@gmail.com
