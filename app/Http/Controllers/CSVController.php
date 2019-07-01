@@ -13,7 +13,12 @@ use App\Exports\AmazonCSVExport;
 use App\Exports\EbayCSVExport;
 use App\Exports\WishCSVExport;
 use App\Rules\ValidBannedKeyword;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
+use Spatie\Dropbox\Client;
+// use League\Flysystem\Filesystem;
+// use Spatie\FlysystemDropbox\DropboxAdapter;
 class CSVController extends Controller
 {
     //
@@ -140,22 +145,33 @@ class CSVController extends Controller
 		}
 
     	$profile_list = ProfileModel::all()->pluck('name', 'id');
+    	$sub_title = '';
 
     	if($req->isMethod('POST')){
+    		/**
+    		 * Upload png and make mockup
+    		 */
     		if($req->get('updatemk')){
 		        if($req->hasfile('file_png'))
 		         {
+		         	/**
+		         	 * Save file png
+		         	 */
 		            $file = $req->file('file_png');
 	                $name = $file->getClientOriginalName();
-	                $path = storage_png_path().'/files/'.time();
-	                $file->move($path, $name);
-	                $csv->filepng = $path.'/'.$name;
+					$path = storage_png_path().'/files/'.time();
+					$file->move($path, $name);
+					$csv->filepng = $path.'/'.$name;
 
+				    /**
+				     * Generate new mockup and save to csvdata
+				     */
 			    	$profile = ProfileModel::where('id', $req->profile_id)->firstOrFail();
 			    	$mockup = generate_png_mockup($csv->filepng, $profile, str_slug($csv->item_name));
 	    			$csv->mockup = json_encode($mockup);
 	    			$csv->profile_id = $req->profile_id;
 			    	$csv->save();
+
 		         }else if(file_exists($csv->filepng)){
 			    	$profile = ProfileModel::where('id', $req->profile_id)->firstOrFail();
 			    	$mockup = generate_png_mockup($csv->filepng, $profile, str_slug($csv->item_name));
@@ -165,7 +181,27 @@ class CSVController extends Controller
 		         }
     		}
 
+            /**
+             * Upload file to Dropbox and make a shared link
+             * Save the link to csvdata
+             */
+    		if($req->get('upload_dropbox')){
+			    $authorizationToken = env('DROPBOX_TOKEN');
+			    $client = new Client($authorizationToken);
+			    // $adapter = new DropboxAdapter($client);
+			    // $filesystem = new Filesystem($adapter);
+			    $current_year = date('Y');
+			    $file_content = file_get_contents($csv->filepng);
+			    $path_file = '/Artwork/'.strtoupper(Str::random(2)).'/'.basename($csv->filepng);
+			    $result = $client->upload($path_file, $file_content);
+			    $result = $client->createSharedLinkWithSettings($result['path_display']);
+			    $csv->dropbox_shared_url = $result['url'];
+		    	$csv->save();	         	
+    		}
 
+    		/**
+    		 * Generate CSV from selected profile
+    		 */
     		if($req->get('genmkcsv')){
 				if(!isset($req->select_brand)){
 					$brand_list = BrandManagerModel::all()->pluck('brand_name','brand_name');
@@ -202,7 +238,9 @@ class CSVController extends Controller
 				return Excel::download($export, str_slug($req->select_brand, "_").'_'.$date.'.tsv');
     		}
 
-
+    		/**
+    		 * Update keywords
+    		 */
     		if($req->get('updatekw')){
 	    		$csv->item_name = $req->item_name;
 	    		$csv->bulletpoint_1 = $req->bulletpoint_1;
@@ -219,11 +257,17 @@ class CSVController extends Controller
 	    		$csv->save();
     		}
 
+    		/**
+    		 * Update SKU
+    		 */
     		if($req->get('updatesku')){
 	    		$csv->item_sku = $req->new_sku;
 	    		$csv->save();
     		}   
 
+    		/**
+    		 * Delete current item
+    		 */
     		if($req->get('delete')){
 	    		$csv->delete();
 	    		return redirect()->route('listing');
@@ -234,6 +278,7 @@ class CSVController extends Controller
     	return view('edit_csv',[
     		'title'=>'Edit ',
     		'message_type' =>0,
+    		'sub_title' => $sub_title,
     		'csv' => $csv,
     		'current_profile' => $profile,
     		'profile_list'=>$profile_list,

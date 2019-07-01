@@ -11,6 +11,9 @@
 |
 */
 use App\Http\Controllers\Auth\LoginController;
+use League\Flysystem\Filesystem;
+use Spatie\Dropbox\Client;
+use Spatie\FlysystemDropbox\DropboxAdapter;
 
 Route::get('/', function () {
     return redirect()->action('AmazonTShirtController@index');
@@ -24,10 +27,21 @@ Route::get('/test', function()
     // $watermark = Image::make(public_path().'\\files\\80 copy.png')->resize(400, 400);
     // $img->insert($watermark, 'top-left', 440, 350);
 
-	$url = "https://rsz.tzy.li/816/918/tzy/previews/images/001/203/652/095/original/ichbingerneerzieher.jpg";
-	$contents = file_get_contents($url);
-	$name = substr($url, strrpos($url, '/') + 1);
-	Storage::put($name, $contents);
+	// $url = "https://rsz.tzy.li/816/918/tzy/previews/images/001/203/652/095/original/ichbingerneerzieher.jpg";
+	// $contents = file_get_contents($url);
+	// $name = substr($url, strrpos($url, '/') + 1);
+	// Storage::put($name, $contents);
+
+    // $authorizationToken = env('DROPBOX_TOKEN');
+    // $client = new Client($authorizationToken);
+    // $adapter = new DropboxAdapter($client);
+    // $filesystem = new Filesystem($adapter);
+    // $result = $client->upload('/Artwork/test.png', Storage::get('84 copy.png'));
+    // $result = $client->createSharedLinkWithSettings($result['path_display']);
+    // print_r($result);
+    // $client->download('test.png');
+
+    echo '<img width=100 src="https://www.dropbox.com/s/uhykkvr5cv9l7m8/test.png?dl=1"/>';
 });
 
 

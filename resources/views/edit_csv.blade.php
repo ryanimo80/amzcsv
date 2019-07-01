@@ -88,6 +88,10 @@
 		@else
 			<img src="data:image/png;base64, {{ base64_encode(file_get_contents($csv->filepng)) }}"/>
 		@endif
+
+		@if(!empty($csv->dropbox_shared_url))
+			<a target="_blank" href="{{$csv->dropbox_shared_url}}">Open Dropbox</a>
+		@endif
 	</div>
 	<div class="column">
 		
@@ -122,6 +126,7 @@
 <div class="field">	
 	<div class="control">
 		<input type="submit" value="Update Artwork" name="updatemk" class="button is-primary"/>
+		<input type="submit" value="Upload Dropbox" name="upload_dropbox" class="button is-primary"/>
 	</div>
 </div>
 

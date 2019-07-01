@@ -42,6 +42,11 @@ return [
     */
 
     'disks' => [
+        'dropbox' => [
+            'driver' => 'dropbox',
+            'token' => env('DROPBOX_TOKEN'),
+        ],
+        
         'onedrive' => [
             'driver' => 'local',
             'root' => config('amzcsv.mockup.path'),

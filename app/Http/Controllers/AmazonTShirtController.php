@@ -211,4 +211,12 @@ class AmazonTShirtController extends Controller
     		// echo '<br/>';
     	}
     }
+
+    public function test()
+    {
+        # code...
+
+        
+
+    }
 }
