@@ -151,6 +151,7 @@ class AmazonCSVExport implements FromCollection, WithHeadings
     	foreach ($sizes as $size_name=>$size_map) {
     		# code...
 			$child_sku = $value->item_sku.'-'.color_map($color).'-'.$size_map[0];
+
 			$data[] = array(//child
 							feed_type($type),$child_sku,$this->brand_name,
 

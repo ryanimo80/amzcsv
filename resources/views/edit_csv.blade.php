@@ -92,9 +92,25 @@
 		@if(!empty($csv->dropbox_shared_url))
 			<a target="_blank" href="{{$csv->dropbox_shared_url}}">Open Dropbox</a>
 		@endif
+
+		| <strong>Profile</strong>: {{ $current_profile->name }}
+
 	</div>
 	<div class="column">
-		
+
+
+		<?php foreach (json_decode($csv->mockup, true) as $type => $color_mockup): ?>
+			<?php foreach ($color_mockup as $color => $mockup): ?>
+				<?php if(is_mug_type($type)){ ?>
+				<a target="_blank" href="<?php echo explode("|", $mockup)[0]; ?>"><img src="<?php echo explode("|", $mockup)[0]; ?>" width="75" /></a>
+				<a target="_blank" href="<?php echo explode("|", $mockup)[1]; ?>"><img src="<?php echo explode("|", $mockup)[1]; ?>" width="75" /></a>
+				<?php }else{ ?>
+				<a target="_blank" href="<?php echo $mockup; ?>"><img src="<?php echo $mockup; ?>" width="75" /></a>					
+				<?php } ?>
+			<?php endforeach ?>
+		<?php endforeach ?>
+
+
 	</div>
 </div>
 
@@ -139,7 +155,8 @@
 
 <div class="field">	
 	<div class="control">
-		<input type="submit" value="Export Profile" name="genmkcsv" class="button is-primary"/>
+		<input type="submit" value="Export CSV Marketplace" name="genmkcsv" class="button is-primary"/>
+		<input type="submit" value="Export CSV Orderdesk" name="genodcsv" class="button is-primary"/>
 	</div>
 </div>
 
@@ -161,21 +178,8 @@
 	</div>
 </div>
 		{{ Form::close() }}
-<hr/>
 
 
-		<strong>Current profile</strong>: {{ $current_profile->name }}
-<hr/>
-		<?php foreach (json_decode($csv->mockup, true) as $type => $color_mockup): ?>
-			<?php foreach ($color_mockup as $color => $mockup): ?>
-				<?php if(is_mug_type($type)){ ?>
-				<a target="_blank" href="<?php echo explode("|", $mockup)[0]; ?>"><img src="<?php echo explode("|", $mockup)[0]; ?>" width="75" /></a>
-				<a target="_blank" href="<?php echo explode("|", $mockup)[1]; ?>"><img src="<?php echo explode("|", $mockup)[1]; ?>" width="75" /></a>
-				<?php }else{ ?>
-				<a target="_blank" href="<?php echo $mockup; ?>"><img src="<?php echo $mockup; ?>" width="75" /></a>					
-				<?php } ?>
-			<?php endforeach ?>
-		<?php endforeach ?>
 	</div>
  
 </div>

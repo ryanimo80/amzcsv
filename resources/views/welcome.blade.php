@@ -90,10 +90,10 @@
           <a class="navbar-item" href="/amz/brandmanager">
             Brand Manager
           </a>
-          <a class="navbar-item" href="/amz/clearqueue">
-            Clear Queue
-          </a>
           <hr class="navbar-divider">
+          <a class="navbar-item" href="/customcat">
+            Customcat Settings
+          </a>
         </div>
       </div>
     </div>

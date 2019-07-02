@@ -80,8 +80,20 @@ class BulkImportCommand extends Command
                 dd("Error: $value");             
             }
         }
-        rename($path, dirname($path).'/T'.$mpath);
- }
+        $this->move_file_to($path, dirname($path).'/T'.$mpath);
+    }
+
+    protected function move_file_to($from, $to)
+    {
+        # code...
+        if(file_exists($to)){
+            foreach (scandir($from) as $key => $value) {
+                if(!in_array($value, array(".",".."))) rename($from."/".$value, $to);
+            }
+        }else{
+            rename($from, $to);
+        }
+    }
 
     protected function imported_marker($value='')
     {
@@ -104,7 +116,6 @@ class BulkImportCommand extends Command
 
         $csvdata = new CSVDataModel();
         $csvdata->design_id = $design_id;
-        $csvdata->brand_name = brand_name();
         $csvdata->profile_id = $profile->id;
         $csvdata->design_month = $mpath;
         $csvdata->item_sku = gen_item_sku(date('y'), $csvdata->design_month, $design_id);
@@ -120,8 +131,12 @@ class BulkImportCommand extends Command
         $csvdata->searchterm_4 = replace_keyword($keyword->searchterm_4, $keyword_0, $keyword_1, $keyword_2);
         $csvdata->searchterm_5 = replace_keyword($keyword->searchterm_5, $keyword_0, $keyword_1, $keyword_2);
         $csvdata->description = replace_keyword($keyword->description, $keyword_0, $keyword_1, $keyword_2);
-        
-        $path = storage_png_path().'/files/'.time();
+        $csvdata->keyword = $keyword_0;
+        $csvdata->keyword_1 = $keyword_1;
+        $csvdata->keyword_2 = $keyword_2;
+        $csvdata->keyword_id = $keyword_id;
+
+        $path = storage_png_path().'/files/'.Str::random(2);
         mkdir($path);
         copy($filepng, $path.'/'.basename($filepng));
         $csvdata->filepng = $path.'/'.basename($filepng);

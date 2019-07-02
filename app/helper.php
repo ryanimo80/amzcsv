@@ -35,6 +35,13 @@ function is_mug_type($type)
 	return false;
 }
 
+function get_mug_size($type='')
+{
+	$type = clothing_config($type);
+	$ret = array($type['short_code'] => $type['title']);
+	return $ret;
+}
+
 if(!function_exists('gen_mockup_front_side'))
 {
 	function gen_mockup_front_side($type, $design_file, $color='', $title='')
@@ -196,34 +203,37 @@ function type_map($t){
 	return $type[$t];
 }
 
+/**
+ * Lay danh sach size cho cac loai ao
+ * dua vao max_size trong config 
+ */
 function generate_sizes($size_shortcode, $type = 'clothing')
 {
-	$size = array(
-		'S' => 'Small',
-		'M' => 'Medium',
-		'L' => 'Large',
-		'XL' => 'X-Large',
-		'2XL' => '2XL-Large',
-		'3XL' => '3XL-Large',
-		'4XL' => '4XL-Large',
-		'5XL' => '5XL-Large',
-		'6XL' => '6XL-Large',
-	);
-	$ret = array();
-	$is_found_max_size = false;
-	foreach ($size as $key => $value) {
-		# code...
-		$ret[$key] = $value;
-		if($key == $size_shortcode){
-			return $ret;
-		}
-	}		
-}
-
-function brand_name()
-{
- 	$brand = 'TheOceanPub Designs';
-	return $brand;   	
+	if(is_mug_type($type)){
+		$ret = get_mug_size($type);
+		return $ret;
+	}else{
+		$size = array(
+			'S' => 'Small',
+			'M' => 'Medium',
+			'L' => 'Large',
+			'XL' => 'X-Large',
+			'2XL' => '2XL-Large',
+			'3XL' => '3XL-Large',
+			'4XL' => '4XL-Large',
+			'5XL' => '5XL-Large',
+			'6XL' => '6XL-Large',
+		);
+		$ret = array();
+		$is_found_max_size = false;
+		foreach ($size as $key => $value) {
+			# code...
+			$ret[$key] = $value;
+			if($key == $size_shortcode){
+				return $ret;
+			}
+		}			
+	}
 }
 
 function get_color_collection($type = '')
@@ -284,6 +294,9 @@ function get_banned_keywords()
 	return $banned_keywords;
 }
 
+/**
+ * Kiem tra do dai bulletpoint
+ */
 function valid_date_bulletpoint($text)
 {
 	$max_length_bullet_point = 500;
@@ -293,7 +306,19 @@ function valid_date_bulletpoint($text)
 	return true;
 }
 
+/**
+ * Xac dinh item type cho amazon feed
+ */
 function item_type($type)
+{
+	$ret = amz_feed_item_type($type);
+	return $ret;
+}
+
+/**
+ * Amazon feed
+ */
+function amz_feed_item_type($value='')
 {
     if(is_mug_type($type))
         $type = 'novelty-coffee-mugs';
@@ -302,7 +327,19 @@ function item_type($type)
 	return $type;
 }
 
+/**
+ * Xac dinh feed type cho amazon
+ */
 function feed_type($type)
+{
+    $ret = amz_feed_feed_type($type);
+    return $ret;
+}
+
+/**
+ * Amazon feed type
+ */
+function amz_feed_feed_type($type='')
 {
     if(is_mug_type($type))
         $type = 'kitchen';

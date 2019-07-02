@@ -68,6 +68,7 @@
 <input type="hidden" name="selected_profile" v-model="selected_profile" value="<?php echo $profile->name ?>"/>
 <input type="hidden" name="filepng" v-model="filepng" value="<?php echo $file ?>" />		
 <input type="hidden" name="mockup_url" v-model="mockup_url" value="" />		
+<input type="hidden" name="keyword_id" v-model="keyword_id" value="" />		
 <article class="message is-warning" v-if="isError">
   <div class="message-body">
   	@{{ error_message }}
@@ -348,6 +349,7 @@
 			keyword:'<?php echo $keyword ?>',
 			receiver:'<?php echo $keyword1 ?>',
 			interest:'<?php echo $keyword2 ?>',
+			keyword_id: {{$keywords->id}}
 		},
 		methods:{
 			save_data:function(event){
@@ -374,8 +376,8 @@
 					keyword: this.keyword,
 					receiver: this.receiver,
 					interest: this.interest,
-					filepng: this.filepng
-
+					filepng: this.filepng,
+					keyword_id: this.keyword_id
 				})
 				.then(response=>{
 					console.log(response);

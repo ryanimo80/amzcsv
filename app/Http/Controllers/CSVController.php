@@ -15,7 +15,7 @@ use App\Exports\WishCSVExport;
 use App\Rules\ValidBannedKeyword;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-
+use App\Exports\OrderDeskInventoryCSV;
 use Spatie\Dropbox\Client;
 // use League\Flysystem\Filesystem;
 // use Spatie\FlysystemDropbox\DropboxAdapter;
@@ -25,23 +25,23 @@ class CSVController extends Controller
 
     public function clearqueue()
     {
-    	# code...
-    	$csvdata = CSVDataModel::where('is_exported', false)->get();
-    	// $csvdata->truncate();
-    	CSVDataModel::where('is_exported', false)->update(array('is_exported' => true));
+    	// # code...
+    	// $csvdata = CSVDataModel::where('is_exported', false)->get();
+    	// // $csvdata->truncate();
+    	// CSVDataModel::where('is_exported', false)->update(array('is_exported' => true));
 
 
-    	$kw = KeywordModel::all()->pluck('main_keyword', 'id');
-    	$prf = ProfileModel::all()->pluck('name','id');
+    	// $kw = KeywordModel::all()->pluck('main_keyword', 'id');
+    	// $prf = ProfileModel::all()->pluck('name','id');
 
-    	return view('amz_tshirt_form', 
-    		[
-    			'title'=>'Amazon T-Shirt CSV Generator',
-    			'subtitle'=>'Queue deleted Successful!',
-    			'message_type' => '1',
-    			'kws_group_name'=>$kw,
-    			'profile_list'=>$prf,
-    		]);
+    	// return view('amz_tshirt_form', 
+    	// 	[
+    	// 		'title'=>'Amazon T-Shirt CSV Generator',
+    	// 		'subtitle'=>'Queue deleted Successful!',
+    	// 		'message_type' => '1',
+    	// 		'kws_group_name'=>$kw,
+    	// 		'profile_list'=>$prf,
+    	// 	]);
     }
 
 
@@ -70,7 +70,6 @@ class CSVController extends Controller
 	    	# code...
 	    	$csvdata = new CSVDataModel();
 	    	$csvdata->design_id = $req->design_id;
-	    	$csvdata->brand_name = brand_name();
 	    	$csvdata->profile_id = intval($req->selected_profile);
 	    	$csvdata->design_month = intval($req->design_month)+1;
 	    	$csvdata->item_sku = gen_item_sku(date('y'), $csvdata->design_month, $req->design_id);
@@ -87,6 +86,10 @@ class CSVController extends Controller
 	    	$csvdata->searchterm_5 = replace_keyword($req->searchterm_5, $req->keyword, $req->receiver, $req->interest);
 	    	$csvdata->description = replace_keyword($req->description, $req->keyword, $req->receiver, $req->interest);
 	    	$csvdata->filepng = $req->filepng;
+	    	$csvdata->keyword = $req->keyword;
+	    	$csvdata->keyword_1 = $req->receiver;
+	    	$csvdata->keyword_2 = $req->interest;
+	    	$csvdata->keyword_id = $req->keyword_id;
 
 		    $validator = Validator::make($csvdata->toArray(), [
 		    	'item_name' => [new ValidBannedKeyword],
@@ -159,7 +162,9 @@ class CSVController extends Controller
 		         	 */
 		            $file = $req->file('file_png');
 	                $name = $file->getClientOriginalName();
-					$path = storage_png_path().'/files/'.time();
+					// $path = storage_png_path().'/files/'.time();
+	                $path = storage_png_path().'/files/'.Str::random(2);
+
 					$file->move($path, $name);
 					$csv->filepng = $path.'/'.$name;
 
@@ -197,6 +202,13 @@ class CSVController extends Controller
 			    $result = $client->createSharedLinkWithSettings($result['path_display']);
 			    $csv->dropbox_shared_url = $result['url'];
 		    	$csv->save();	         	
+    		}
+
+    		if($req->get('genodcsv')){
+    			$export_inventory = new OrderDeskInventoryCSV($csv);
+		    	$profile = ProfileModel::where('id', $req->profile_id)->first();
+		    	$export_inventory->set_profile($profile);
+				return Excel::download($export_inventory, 'OrderDesk_'.$csv->item_sku.'.tsv');		    	
     		}
 
     		/**

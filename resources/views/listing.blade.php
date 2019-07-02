@@ -90,9 +90,9 @@
 				{'id':'{{$csv_row->id}}', 'sku':'{{$csv_row->item_sku}}', 'title':'{{$csv_row->item_name}}', 'p_name':'{{$csv_row->p_name}}', 'created_at':'{{$csv_row->created_at}}'},
 			@endforeach
 			],
-        selected: [],
-        allSelected: false,
-        csvIDs: []
+	        selected: [],
+	        allSelected: false,
+	        csvIDs: []
 		},
 		methods:{
 			selectAll: function (isSelected) {

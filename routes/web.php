@@ -74,11 +74,17 @@ Route::post('/amz/savecsvrow/', 'CSVController@saveCSVRow');
 Route::get('/amz/edit/{id}', 'CSVController@edit');
 Route::post('/amz/edit/{id}', 'CSVController@edit');
 
+/**
+ * Brand manager
+ */
 Route::get('/amz/brandmanager', 'BrandManagerController@index')->name('brand_manager_index');
 Route::post('/amz/brandmanager', 'BrandManagerController@store');
 Route::get('/amz/brandmanager/{id}', 'BrandManagerController@edit');
 Route::post('/amz/brandmanager/{id}/update', 'BrandManagerController@update');
 
+/**
+ * Upload PNG
+ */
 Route::get('/amz/fix', 'AmazonTShirtController@fix_db_error');
 Route::post('/amz/uploads/', 'AmazonTShirtController@uploads');
 Route::get('/amz/png/{path}/{name}', function($path, $name){
@@ -88,13 +94,24 @@ Route::get('/amz/png/{path}/{name}', function($path, $name){
 Route::get('/amz/gen-mockup/', 'AmazonTShirtController@genMockup');
 Route::resource('amz', 'AmazonTShirtController');
 
-// Route::get('/fulfillment/', 'CustomCatController@index');
+/**
+ * Customcat
+ */
+Route::get('/customcat/', 'CustomCatController@index');
+Route::post('/customcat/', 'CustomCatController@index');
+Route::get('/customcat/{id}', 'CustomCatController@index');
+Route::post('/customcat/{id}', 'CustomCatController@index');
 
+/**
+ * Teezily scanner
+ */
 Route::get('/teezily/scan/', 'TeezilyController@scan');
 Route::post('/teezily/scan/', 'TeezilyController@scan');
 Route::post('/teezily/ajax_scan/', 'TeezilyController@ajax_scan');
 
-
+/**
+ * Authen
+ */
 Route::get('/home', 'Auth\LoginController@login')->name('login');
 Route::post('/home', 'Auth\LoginController@login')->name('login');
 Route::get('/logoutx', 'Auth\LoginController@logout');
