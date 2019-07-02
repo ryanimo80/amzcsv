@@ -282,7 +282,7 @@ function replace_keyword($text, $keyword="", $keyword1="", $keyword2="")
 }
 
 function replace_brand($text){
-	$new_text = trim(str_replace('[brand]', brand_name(), $text));	
+	$new_text = trim(str_replace('[brand]', "", $text));	
 	return $new_text;	
 }
 
@@ -318,7 +318,7 @@ function item_type($type)
 /**
  * Amazon feed
  */
-function amz_feed_item_type($value='')
+function amz_feed_item_type($type='')
 {
     if(is_mug_type($type))
         $type = 'novelty-coffee-mugs';

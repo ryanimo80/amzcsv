@@ -8,6 +8,7 @@ use App\ProfileModel;
 use App\CSVDataModel;
 use Validator;
 use App\Rules\ValidBannedKeyword;
+use Illuminate\Support\Str;
 
 class BulkImportCommand extends Command
 {
@@ -119,7 +120,7 @@ class BulkImportCommand extends Command
         $csvdata->profile_id = $profile->id;
         $csvdata->design_month = $mpath;
         $csvdata->item_sku = gen_item_sku(date('y'), $csvdata->design_month, $design_id);
-        $csvdata->item_name = replace_keyword($title, $keyword_0, $keyword_1, $keyword_2);
+        $csvdata->item_name = ucfirst(replace_keyword($title, $keyword_0, $keyword_1, $keyword_2));
         $csvdata->bulletpoint_1 = replace_keyword($keyword->bulletpoint_1, $keyword_0, $keyword_1, $keyword_2);
         $csvdata->bulletpoint_2 = replace_keyword($keyword->bulletpoint_2, $keyword_0, $keyword_1, $keyword_2);
         $csvdata->bulletpoint_3 = replace_keyword($keyword->bulletpoint_3, $keyword_0, $keyword_1, $keyword_2);
@@ -137,7 +138,7 @@ class BulkImportCommand extends Command
         $csvdata->keyword_id = $keyword_id;
 
         $path = storage_png_path().'/files/'.Str::random(2);
-        mkdir($path);
+        if(!file_exists($path)) mkdir($path);
         copy($filepng, $path.'/'.basename($filepng));
         $csvdata->filepng = $path.'/'.basename($filepng);
 

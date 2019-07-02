@@ -73,7 +73,7 @@ class CSVController extends Controller
 	    	$csvdata->profile_id = intval($req->selected_profile);
 	    	$csvdata->design_month = intval($req->design_month)+1;
 	    	$csvdata->item_sku = gen_item_sku(date('y'), $csvdata->design_month, $req->design_id);
-	    	$csvdata->item_name = replace_keyword($req->item_name, $req->keyword, $req->receiver, $req->interest);
+	    	$csvdata->item_name = ucfirst(replace_keyword($req->item_name, $req->keyword, $req->receiver, $req->interest));
 	    	$csvdata->bulletpoint_1 = replace_keyword($req->bulletpoint_1, $req->keyword, $req->receiver, $req->interest);
 	    	$csvdata->bulletpoint_2 = replace_keyword($req->bulletpoint_2, $req->keyword, $req->receiver, $req->interest);
 	    	$csvdata->bulletpoint_3 = replace_keyword($req->bulletpoint_3, $req->keyword, $req->receiver, $req->interest);
