@@ -160,7 +160,7 @@ class AmazonTShirtController extends Controller
             {
                 $name=$file->getClientOriginalName();
                 // $path = storage_png_path().'/files/'.time();
-                $path = storage_png_path().'/files/'.Str::random(2);
+                $path = storage_png_path().'/files/'.\Str::random(2);
 
                 $file->move($path, $name);
                 $files[] = $path.'/'.$name;

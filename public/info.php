@@ -1,4 +1,7 @@
 <?php
-//phpinfo();
+/**
+ * @author admin@gmail.com 
+ *
+ */
+phpinfo();
 
-//admin@gmail.com
