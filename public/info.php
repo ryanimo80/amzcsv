@@ -1,7 +1,9 @@
 <?php
 /**
- * @author admin@gmail.com 
+ * @author admin@gmail.com
  *
  */
 phpinfo();
+
+print_r($_SERVER)
 
